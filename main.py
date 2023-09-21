@@ -1,6 +1,28 @@
+import datetime
+import logging
+from pyfiglet import Figlet
+import shodan
+import requests
+import json
+import config
 
-print(banner.renderText("# Menu projecte #"))
-print("##Benvingut al menu del projecte##")
+banner = Figlet(font='isometric4')
+
+data = datetime.datetime.today()
+datastring = data.strftime("%d-%m-%Y")
+format_data = "Auditoria realitzada a data de " + datastring
+
+telegram_api_key = config.TELEGRAM_API_KEY
+
+shodan_api_key = config.SHODAN_API_KEY
+
+
+f = open("resultats.json", "w")
+f.write(format_data + "\n")
+
+
+print(banner.renderText("# M M I #"))
+print("## Benvingut al menu del projecte ##")
 print("## Versio 1.0 ##")
 print("## Programat per Marc Queralt, Max Segura, Isaac Andreu ##")
 print("## Programa defensiu dissenyat per neutralitzar possibles amenaces," "\n" " reforçar la seguretat del sistema i garantir l'integirtat dels"
@@ -36,7 +58,7 @@ while True:
             option = int(input())
             if option == 1:
                 domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan1()
+                shodan1(domini_objectiu)
             
             elif option == 2:
                 domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
@@ -49,7 +71,6 @@ while True:
             elif option == 4:
                 sys.argv = (input("Insereix el servei que vols escanejar.\n"))
                 shodan4()
-            
             elif option == 5:
                 break
 
@@ -63,26 +84,7 @@ while True:
                 os._exit(0)
         
     elif option == 2:
-
-        print("Has escollit el menu d'escaneig. Ara, escull una de les següents opcions:\n")
-
-        def menumap():
-            print("1. Descobrir hosts de xarxa")
-            print("2. Escaneig de ports oberts")
-            print("3. Llistat de serveis i versions d'un, un rang o tots els ports")
-            print("4. Llistat de vulnerabilitats d'un, un rang o tots els serveis.")
-            print("5. Tornar al menu principal")
-            print("6. Rebre resultats i sortir")
-            print("7. Sortir sense resultats")
-
-        while True:
-            menumap()
-            option = int(input())
-            if option == 1:
-                nmap1()
-            
-            elif option == 2:
-                nmap2()
-            
-            elif option == 3:
-            
+        break
+    
+    
+          
