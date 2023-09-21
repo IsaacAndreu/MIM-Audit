@@ -4,7 +4,8 @@ from pyfiglet import Figlet
 import shodan
 import requests
 import json
-import config
+from modules.shodan import main as shodan_module
+
 
 banner = Figlet(font='isometric4')
 
@@ -12,19 +13,19 @@ data = datetime.datetime.today()
 datastring = data.strftime("%d-%m-%Y")
 format_data = "Auditoria realitzada a data de " + datastring
 
-telegram_api_key = config.TELEGRAM_API_KEY
+telegram_api_key = '6676090876:AAH3bmZEhE7buvGz-isGVJf4KmXnhO5FF5c'
 
-shodan_api_key = config.SHODAN_API_KEY
+shodan_api_key = 'n423QbNhqvvDQR5KAtYxtnh1vDwDd3Dn'
 
 
 f = open("resultats.json", "w")
 f.write(format_data + "\n")
 
 
-print(banner.renderText("# M M I #"))
+print(banner.renderText("# M I M #"))
 print("## Benvingut al menu del projecte ##")
 print("## Versio 1.0 ##")
-print("## Programat per Marc Queralt, Max Segura, Isaac Andreu ##")
+print("## Programat per Marc Queral, Max Segura, Isaac Andreu ##")
 print("## Programa defensiu dissenyat per neutralitzar possibles amenaces," "\n" " reforçar la seguretat del sistema i garantir l'integirtat dels"
       "\n" " dispositius i serveis de la xarxa. \n")
 

@@ -1,0 +1,3 @@
+pip install shodan
+pip install pyfiglet
+pip install python-nmap
