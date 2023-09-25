@@ -1,11 +1,1 @@
 Auditoria realitzada a data de 25-09-2023
-
-##~ Cerca d'informació de l'api de Shodan ~##
-IP: 157.240.241.174
-Organización: Facebook, Inc.
-
-##~ Noms de domini i ports oberts ~##
-Nombres de dominio: instagram.com, igcdn.com, igsonar.com, cdninstagram.com, instagram-p42-shv-02-lga3.fbcdn.net
-Puertos abiertos:
-Port: 80
-Port: 443

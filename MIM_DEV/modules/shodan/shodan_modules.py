@@ -18,7 +18,7 @@ def shodan1(domini_objectiu):
             with open("resultats.json", "a") as f:
                 f.write("\n" + "##~ Cerca d'informació de l'api de Shodan ~##" + "\n")
                 f.write("IP: %s" % host['ip_str'] + "\n")
-                f.write("Organizació: %s" % host.get('org', 'n/a') + "\n")
+                f.write("Organización: %s" % host.get('org', 'n/a') + "\n")
 
             print("IP: %s" % host['ip_str'])
             print("Organización: %s" % host.get('org', 'n/a'))
@@ -60,25 +60,27 @@ def shodan3(domini_objectiu):
     api = shodan.Shodan(SHODAN_API_KEY)
 
     try:
-        results = api.search(f"hostname:{domini_objectiu}")
+        dnsresolve = 'https://api.shodan.io/dns/resolve?hostnames=' + domini_objectiu + '&key=' + SHODAN_API_KEY
+        resolved = requests.get(dnsresolve)
+        resolved_data = resolved.json()
 
-        print(f"Servicio relacionado a cada puerto para la domini_objectiu: {domini_objectiu}")
-        for result in results['matches']:
-            ports = result.get('ports', 'N/A')
-            data = result.get('data', 'N/A')
+        if domini_objectiu in resolved_data:
+            hostip = resolved_data[domini_objectiu]
+            host = api.host(hostip)
 
-            print(f"IP: {result['ip_str']}")
-            if ports != 'N/A':
-                for port in ports:
-                    print(f"Puerto: {port}")
-                    if data != 'N/A':
-                        for banner in data:
-                            if banner['port'] == port:
-                                print(f"Servicio: {banner.get('service', 'N/A')}")
-                    print(f"--------------------------")
+            with open("resultats.json", "w") as f:
+                f.write("\n" + "##~ SERVEIS VINCULATS A PORTS ~##" + "\n")
+                for item in host['data']:
+                    print("Port: %s" % item['port'])
+                    f.write("Port: %s" % item['port'] + "\n")
+                    objecte = item['data'].split("\n")
+                    print(objecte[0])
+                    f.write(objecte[0] + "\n")
+        else:
+            print("No se pudo resolver el dominio o no se encontró información en Shodan.")
 
-    except shodan.APIError as e:
-        print(f"Error en la búsqueda de Shodan: {e}")
+    except Exception as e:
+        print("Error: ", e)
 
 def shodan4(service_name):
     api = shodan.Shodan(SHODAN_API_KEY)
