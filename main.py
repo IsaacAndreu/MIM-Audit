@@ -4,7 +4,7 @@ from pyfiglet import Figlet
 import shodan
 import requests
 import json
-from modules.shodan import main as shodan_module
+from MIM_DEV.modules.shodan import shodan_modules
 
 
 banner = Figlet(font='isometric4')
@@ -15,7 +15,7 @@ format_data = "Auditoria realitzada a data de " + datastring
 
 telegram_api_key = '6676090876:AAH3bmZEhE7buvGz-isGVJf4KmXnhO5FF5c'
 
-shodan_api_key = 'n423QbNhqvvDQR5KAtYxtnh1vDwDd3Dn'
+
 
 
 f = open("resultats.json", "w")
@@ -59,19 +59,19 @@ while True:
             option = int(input())
             if option == 1:
                 domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan1(domini_objectiu)
+                shodan_modules.shodan1(domini_objectiu)
             
             elif option == 2:
                 domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan2()
+                shodan_modules.shodan2(domini_objectiu)
             
             elif option == 3:
                 domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan3()
+                shodan_modules.shodan3(domini_objectiu)
             
             elif option == 4:
-                sys.argv = (input("Insereix el servei que vols escanejar.\n"))
-                shodan4()
+                service_name = (input("Insereix el servei que vols escanejar.\n"))
+                shodan_modules.shodan4(service_name)
             elif option == 5:
                 break
 
