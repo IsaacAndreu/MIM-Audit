@@ -1,10 +1,13 @@
 import datetime
 import logging
+import os
 from pyfiglet import Figlet
 import shodan
 import requests
 import json
+import telebot
 from MIM_DEV.modules.shodan import shodan_modules
+from MIM_DEV.data.config import TELEGRAM_API_KEY
 
 
 banner = Figlet(font='isometric4')
@@ -13,13 +16,34 @@ data = datetime.datetime.today()
 datastring = data.strftime("%d-%m-%Y")
 format_data = "Auditoria realitzada a data de " + datastring
 
-telegram_api_key = '6676090876:AAH3bmZEhE7buvGz-isGVJf4KmXnhO5FF5c'
+
+token = TELEGRAM_API_KEY
+bot = telebot.TeleBot(token)
+
+@bot.message_handler(commands=['start'])
+def send_file(message):
+    chat_id = message.chat.id
+    file_paths = ["/home/alumne/Escriptori/Code/Curs/projecte-23-24/MIM_DEV/data/resultats.json"] 
+
+    for file_path in file_paths:
+        with open(file_path, 'rb') as file:
+            bot.send_document(chat_id, file)
+
+@bot.message_handler(commands=['stop'])
+def handle_stop(message):
+    chat_id = message.chat.id
+    message_id = message.message_id
+
+    for i in range(5):
+        bot.delete_message(chat_id, message_id - i)
+
+    print(banner.renderText("# MIM #"))
+    os._exit(0)
 
 
 
-
-f = open("resultats.json", "w")
-f.write(format_data + "\n")
+with open("resultats.json", "w") as f:
+    f.write(format_data + "\n")
 
 
 print(banner.renderText("# M I M #"))
@@ -77,10 +101,10 @@ while True:
 
             elif option == 6:
                 f.close()
-                print("Pots trobar els resultats accedint al següent enllaç:")
+                print("Pots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
                 bot.polling()
 
-            elif option == 0:
+            elif option == 7:
                 f.close()
                 os._exit(0)
         

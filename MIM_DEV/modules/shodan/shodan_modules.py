@@ -19,6 +19,10 @@ def shodan1(domini_objectiu):
             host = api.host(hostip)
 
             # Abrir el archivo resultats.json en modo "a" (adjuntar)
+            #with open("resultats.json", "w") as f:
+            #    f.write("\n" + "##~ DADES ~##" + "\n")
+            #    f.write("IP: %s" % host['ip_str'] + "\n")
+            #   f.write("Organización: %s" % host.get('org', 'n/a') + "\n")
             with open("resultats.json", "a") as f:
                 f.write("\n" + "##~ DADES ~##" + "\n")
                 f.write("IP: %s" % host['ip_str'] + "\n")
