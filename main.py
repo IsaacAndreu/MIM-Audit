@@ -23,7 +23,7 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start'])
 def send_file(message):
     chat_id = message.chat.id
-    file_paths = ["/home/alumne/Escriptori/Code/Curs/projecte-23-24/MIM_DEV/data/resultats.json"] 
+    file_paths = ["/home/alumne/Escriptori/Code/Curs/projecte-23-24/resultats.json"] 
 
     for file_path in file_paths:
         with open(file_path, 'rb') as file:

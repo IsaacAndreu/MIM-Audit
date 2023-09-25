@@ -1,74 +1,68 @@
 import shodan
 import json
 import requests
+from MIM_DEV.data.config import SHODAN_API_KEY
 
-SHODAN_API_KEY = 'n423QbNhqvvDQR5KAtYxtnh1vDwDd3Dn'
 
 def shodan1(domini_objectiu):
-    # Crear una instancia del cliente de Shodan
     api = shodan.Shodan(SHODAN_API_KEY)
 
     try:
-        # Resolver el nombre de dominio a una dirección IP
         dnsresolve = 'https://api.shodan.io/dns/resolve?hostnames=' + domini_objectiu + '&key=' + SHODAN_API_KEY
         resolved = requests.get(dnsresolve)        
         hostip = resolved.json().get(domini_objectiu)
 
         if hostip:
-            # Obtener información del host utilizando la IP resuelta
             host = api.host(hostip)
 
-            # Abrir el archivo resultats.json en modo "a" (adjuntar)
-            #with open("resultats.json", "w") as f:
-            #    f.write("\n" + "##~ DADES ~##" + "\n")
-            #    f.write("IP: %s" % host['ip_str'] + "\n")
-            #   f.write("Organización: %s" % host.get('org', 'n/a') + "\n")
             with open("resultats.json", "a") as f:
-                f.write("\n" + "##~ DADES ~##" + "\n")
+                f.write("\n" + "##~ Cerca d'informació de l'api de Shodan ~##" + "\n")
                 f.write("IP: %s" % host['ip_str'] + "\n")
-                f.write("Organización: %s" % host.get('org', 'n/a') + "\n")
+                f.write("Organizació: %s" % host.get('org', 'n/a') + "\n")
 
-            # Imprimir los resultados en la consola
             print("IP: %s" % host['ip_str'])
             print("Organización: %s" % host.get('org', 'n/a'))
         else:
-            print("No se pudo resolver el dominio o no se encontró información en Shodan.")
+            print("No s'ha pogut resoldre el domini o no s'ha trobat informació a Shodan..")
 
     except Exception as e:
         print("Error: ", e)
 
 
-def shodan2(url):
-    # Crear una instancia del cliente de Shodan
+def shodan2(domini_objectiu):
     api = shodan.Shodan(SHODAN_API_KEY)
 
     try:
-        # Realizar una búsqueda en Shodan basada en la URL proporcionada
-        results = api.search(f"hostname:{url}")
+        dnsresolve = 'https://api.shodan.io/dns/resolve?hostnames=' + domini_objectiu + '&key=' + SHODAN_API_KEY
+        resolved = requests.get(dnsresolve)
+        hostip = resolved.json().get(domini_objectiu)
 
-        # Imprimir los nombres de dominio y puertos abiertos
-        print(f"Nombres de dominio y puertos abiertos para la URL: {url}")
-        for result in results['matches']:
-            hostnames = result.get('hostnames', 'N/A')
-            ports = result.get('ports', 'N/A')
-            print(f"IP: {result['ip_str']}")
-            print(f"Nombres de dominio: {', '.join(hostnames) if hostnames != 'N/A' else 'N/A'}")
-            print(f"Puertos abiertos: {', '.join(map(str, ports)) if ports != 'N/A' else 'N/A'}")
-            print(f"--------------------------")
+        if hostip:
+            host = api.host(hostip)
 
-    except shodan.APIError as e:
-        print(f"Error en la búsqueda de Shodan: {e}")
+            with open("resultats.json", "a") as f:
+                f.write("\n" + "##~ Noms de domini i ports oberts ~##" + "\n")
+                f.write("Noms de domini: %s" % ', '.join(host.get('hostnames', ['N/A'])) + "\n")
+                f.write("Ports oberts:\n")
+                for item in host['data']:
+                    print("Port: %s" % item['port'])
+                    f.write("Port: %s\n" % item['port'])
+                    
+            print("Informació dels ports oberts i els nombres de dominis esta escrita a resultats.json")
+        else:
+            print("No s'ha pogut resoldre el domini o no s'ha trobat informació a Shodan.")
+    except Exception as e:
+        print("Error: ", e)
 
-def shodan3(url):
-    # Crear una instancia del cliente de Shodan
+
+
+def shodan3(domini_objectiu):
     api = shodan.Shodan(SHODAN_API_KEY)
 
     try:
-        # Realizar una búsqueda en Shodan basada en la URL proporcionada
-        results = api.search(f"hostname:{url}")
+        results = api.search(f"hostname:{domini_objectiu}")
 
-        # Imprimir el servicio relacionado a cada puerto
-        print(f"Servicio relacionado a cada puerto para la URL: {url}")
+        print(f"Servicio relacionado a cada puerto para la domini_objectiu: {domini_objectiu}")
         for result in results['matches']:
             ports = result.get('ports', 'N/A')
             data = result.get('data', 'N/A')
@@ -87,14 +81,11 @@ def shodan3(url):
         print(f"Error en la búsqueda de Shodan: {e}")
 
 def shodan4(service_name):
-    # Crear una instancia del cliente de Shodan
     api = shodan.Shodan(SHODAN_API_KEY)
 
     try:
-        # Realizar una búsqueda en Shodan basada en el servicio proporcionado
         results = api.search(f"product:{service_name}")
 
-        # Imprimir las IPs y puertos relacionados con el servicio
         print(f"IPs y puertos relacionados con el servicio '{service_name}':")
         for result in results['matches']:
             ip = result['ip_str']
