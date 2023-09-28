@@ -1,2 +1,4 @@
+# data/config.py
+
 SHODAN_API_KEY = 'n423QbNhqvvDQR5KAtYxtnh1vDwDd3Dn'
 TELEGRAM_API_KEY ='6676090876:AAH3bmZEhE7buvGz-isGVJf4KmXnhO5FF5c'

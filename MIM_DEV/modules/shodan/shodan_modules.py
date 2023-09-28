@@ -68,7 +68,7 @@ def shodan3(domini_objectiu):
             hostip = resolved_data[domini_objectiu]
             host = api.host(hostip)
 
-            with open("resultats.json", "w") as f:
+            with open("resultats.json", "a") as f:
                 f.write("\n" + "##~ SERVEIS VINCULATS A PORTS ~##" + "\n")
                 for item in host['data']:
                     print("Port: %s" % item['port'])
@@ -82,22 +82,39 @@ def shodan3(domini_objectiu):
     except Exception as e:
         print("Error: ", e)
 
-def shodan4(service_name):
-    api = shodan.Shodan(SHODAN_API_KEY)
 
+def shodan4(service_name, domini_objectiu):
     try:
-        results = api.search(f"product:{service_name}")
+        api = shodan.Shodan(SHODAN_API_KEY)
+        dnsresolve = 'https://api.shodan.io/dns/resolve?hostnames=' + domini_objectiu + '&key=' + SHODAN_API_KEY
 
-        print(f"IPs y puertos relacionados con el servicio '{service_name}':")
-        for result in results['matches']:
-            ip = result['ip_str']
-            ports = result.get('ports', 'N/A')
-            print(f"IP: {ip}")
-            print(f"Puertos: {', '.join(map(str, ports)) if ports != 'N/A' else 'N/A'}")
-            print(f"--------------------------")
+        resolved = requests.get(dnsresolve)
+        resolved_data = resolved.json()
 
-    except shodan.APIError as e:
-        print(f"Error en la búsqueda de Shodan: {e}")
+        if domini_objectiu in resolved_data:
+            hostip = resolved_data[domini_objectiu]
+
+            query = f'product:"{service_name}" hostname:"{domini_objectiu}"'
+            results = api.search(query)
+
+            if results['total'] > 0:
+                with open("resultats.json", "a") as f:
+                    f.write(f"\n##~ Resultats per a {service_name} a {domini_objectiu} ~##\n")
+                    f.write(f"Total Results: {results['total']}\n")
+                    f.write(f'Servicio escanejat: {service_name}\n')
+
+                    for result in results['matches']:
+                        f.write(f"IP: {result['ip_str']}\n")
+                        f.write(f"Port: {result['port']}\n")
+
+                print(f"Resultats per a {service_name} a {domini_objectiu} escrits en resultats.json")
+            else:
+                print(f"No se encontraron resultados para {service_name} en {domini_objectiu}.")
+        else:
+            print("No se pudo resolver el dominio o no se encontró información en Shodan.")
+    except Exception as e:
+        print(f"Se produjo un error: {e}")
+
 
 
 

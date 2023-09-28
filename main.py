@@ -6,16 +6,16 @@ import shodan
 import requests
 import json
 import telebot
+import subprocess
 from MIM_DEV.modules.shodan import shodan_modules
 from MIM_DEV.data.config import TELEGRAM_API_KEY
-
+from MIM_DEV.modules.harvester import harvester_modules
 
 banner = Figlet(font='isometric4')
 
 data = datetime.datetime.today()
 datastring = data.strftime("%d-%m-%Y")
 format_data = "Auditoria realitzada a data de " + datastring
-
 
 token = TELEGRAM_API_KEY
 bot = telebot.TeleBot(token)
@@ -40,41 +40,39 @@ def handle_stop(message):
     print(banner.renderText("# MIM #"))
     os._exit(0)
 
-
-
 with open("resultats.json", "w") as f:
     f.write(format_data + "\n")
 
-
 print(banner.renderText("# M I M #"))
-print("## Benvingut al menu del projecte ##")
-print("## Versio 1.0 ##")
+print("## Benvingut al menú del projecte ##")
+print("## Versió 1.0 ##")
 print("## Programat per Marc Queral, Max Segura, Isaac Andreu ##")
-print("## Programa defensiu dissenyat per neutralitzar possibles amenaces," "\n" " reforçar la seguretat del sistema i garantir l'integirtat dels"
+print("## Programa defensiu dissenyat per neutralitzar possibles amenaces," "\n" " reforçar la seguretat del sistema i garantir l'integritat dels"
       "\n" " dispositius i serveis de la xarxa. \n")
 
 print("Escull una de les següents opcions: \n")
 
 def menuprincipal():
-    print("1. Shodan Api")
-    print("2. Escaneig")
-    print("3. Auditoria SSH")
-    print("4. Enumeració")
-    print("5. Rebre resultats i sortir")
-    print("6. Sortir sense resultats")
+    print("1. Shodan API")
+    print("2. Harvester")
+    print("3. Escaneig")
+    print("4. Auditoria SSH")
+    print("5. Enumeració")
+    print("6. Rebre resultats i sortir")
+    print("7. Sortir sense resultats")
 
 while True:
     menuprincipal()
     option = int(input())
     if option == 1:
-        print("Has escollit el menu de Shodan Api. Ara, escull una de les següents opcions:\n")
+        print("Has escollit el menú de Shodan API. Ara, escull una de les següents opcions:\n")
 
         def menushodan():
-            print("1. Cerca d'informació de l'api de Shodan")
+            print("1. Cerca d'informació de l'API de Shodan")
             print("2. Noms de domini i ports oberts")
             print("3. Servei relacionat a cada port")
-            print("4. A quines IP i quins ports puc trovar aquest servei?")
-            print("5. Tornar al menu principal")
+            print("4. A quines IP i quins ports puc trobar aquest servei?")
+            print("5. Tornar al menú principal")
             print("6. Rebre resultats i sortir")
             print("7. Sortir sense resultats")
 
@@ -94,8 +92,10 @@ while True:
                 shodan_modules.shodan3(domini_objectiu)
             
             elif option == 4:
-                service_name = (input("Insereix el servei que vols escanejar.\n"))
-                shodan_modules.shodan4(service_name)
+                domini_objectiu = input("Insereix un objectiu en format URL (ex: www.google.com\n")
+                service_name = input("Insereix el nom del servei que vols escanejar :\n")
+                shodan_modules.shodan4(service_name, domini_objectiu)
+
             elif option == 5:
                 break
 
@@ -109,7 +109,9 @@ while True:
                 os._exit(0)
         
     elif option == 2:
+        print("Has triat el menú de The Harvester. Introdueix l'objectiu (domini o adreça IP):")
+        target = input()
+        harvester_modules.run_the_harvester(target)  # Crida a la funció des del mòdul
+
+    elif option == 3:
         break
-    
-    
-          
