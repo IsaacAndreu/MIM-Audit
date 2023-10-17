@@ -1,29 +1,37 @@
 import subprocess
 import json
+import netaddr
+import yaml
+import requests
+import telebot
+from MIM_DEV.data.config import TELEGRAM_API_KEY
+import shutil  # Importa la biblioteca shutil
 
-def run_the_harvester(target):
-    # Comanda per executar The Harvester amb les opcions desitjades
-    command = f"theharvester -d {target} -b all -l 500 -f harvester_results.html"
-    
+def load_api_keys(api_keys_file):
     try:
-        # Executa la comanda en un subprocess
+        api_file_path = api_keys_file
+        with open(api_file_path, "r") as api_file:
+            api_keys = yaml.load(api_file, Loader=yaml.FullLoader)
+            return api_keys
+    except FileNotFoundError:
+        print(f"El archivo {api_keys_file} no se encontró en la ruta especificada.")
+        return {}
+
+def run_the_harvester(target, api_keys_file="/projecte-23-24/api-keys.yaml"):
+    api_keys = load_api_keys(api_keys_file)
+
+    command = f"/usr/local/bin/theHarvester -d {target} -b all -l 500 -f harvester_results.json"
+
+    try:
         subprocess.call(command, shell=True)
-        print("The Harvester s'ha executat correctament.")
-        
-        # Obre l'arxiu resultats.json en mode lectura i guarda els resultats existents en una variable
-        with open("resultats.json", "r") as result_file:
-            resultats_antigues = result_file.read()
+        print("The Harvester se ha ejecutado correctamente.")
 
-        # Afegir els resultats nous als resultats existents sense esborrar-los
-        with open("resultats.json", "w") as result_file:
-            result_file.write(resultats_antigues)
-            result_file.write(f"Resultats de The Harvester per a {target}:\n")
-            with open("harvester_results.html", "r") as harvester_results_file:
-                result_file.write(harvester_results_file.read())
-                result_file.write("\n\n")
+        with open("harvester_results.json", "r") as harvester_file:
+            harvester_results = harvester_file.read()
 
-        # Imprimeix l'enllaç al bot de Telegram
-        print("Pots trobar els resultats al bot de Telegram: https://t.me/projecte2324_bot")
-    
+        with open("resultats.json", "a") as resultats_file:
+            resultats_file.write(harvester_results)
+
     except Exception as e:
-        print(f"Error en executar The Harvester: {str(e)}")
+        print(f"Error al ejecutar The Harvester: {str(e)}")
+

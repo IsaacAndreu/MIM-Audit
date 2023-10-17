@@ -1,0 +1,18 @@
+pip install pyfiglet
+# Install Shodan
+pip install shodan
+# Install nmap
+pip install python-nmap
+# Install telegram bot
+pip install pyTelegramBotAPI
+# Install The Harvester
+pip install theHarvester
+pip install netaddr
+pip install ujson
+pip install aiomultiprocess
+pip install aiohttp
+pip install censys
+pip install aiodns
+pip install aiosqlite
+pip install pyppeteer
+pip install uvloop

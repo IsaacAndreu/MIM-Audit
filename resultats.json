@@ -1,4 +1,11 @@
-Auditoria realitzada a data de 28-09-2023
-Resultats de The Harvester per a 192.168.203.169:
+Auditoria realitzada a data de 17-10-2023
 
-
+##~ ESCANEIG DE PORTS OBERTS DEL HOST 192.168.203.186 ~##
+- Port 80 (http)
+- Port 111 (rpcbind)
+- Port 2049 (nfs_acl)
+- Port 33647 (nlockmgr)
+- Port 37465 (mountd)
+- Port 41373 (mountd)
+- Port 53935 (mountd)
+- Port 54607 (status)

@@ -7,9 +7,11 @@ import requests
 import json
 import telebot
 import subprocess
+import nmap
 from MIM_DEV.modules.shodan import shodan_modules
 from MIM_DEV.data.config import TELEGRAM_API_KEY
 from MIM_DEV.modules.harvester import harvester_modules
+from MIM_DEV.modules.nmap.nmap_modules import nmap1, nmap2, nmap3, nmap4
 
 banner = Figlet(font='isometric4')
 
@@ -109,9 +111,71 @@ while True:
                 os._exit(0)
         
     elif option == 2:
-        print("Has triat el menú de The Harvester. Introdueix l'objectiu (domini o adreça IP):")
-        target = input()
-        harvester_modules.run_the_harvester(target)  # Crida a la funció des del mòdul
+        print("Has triat el menú de The Harvester. Escull una de les següents opcions:\n")
+        
+        def menuharvester():
+            print("1. Executar The Harvester")
+            print("2. Veure resultats a Telegram")
+            print("3. Tornar al menú principal")
+            print("4. Sortir del programa")
+
+        while True:
+            menuharvester()
+            option = int(input())
+            if option == 1:
+                print("Introdueix l'objectiu (domini o adreça IP):")
+                target = input()
+                harvester_modules.run_the_harvester(target)  # Llama a la función de The Harvester
+
+            elif option == 2:
+                print("Pots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
+
+            elif option == 3:
+                break  # Volver al menú principal
+
+            elif option == 4:
+                print("Sortint del programa.")
+                exit()
 
     elif option == 3:
+        print("Has escollit el menu d'escaneig (Nmap). Ara, escull una de les següents opcions:\n")
+
+        def menunmap():
+            print("1. Descobreix hosts de xarxa")
+            print("2. Escaneig de ports oberts")
+            print("3. Llistar serveis i versions d'un, un rang o tots els ports")
+            print("4. Llistar vulnerabilitats d'un, un rang o tots els serveis")
+            print("5. Tornar al menu principal")
+            print("6. Rebre resultats i sortir")
+            print("7. Sortir sense resultats\n")
+
+        while True:
+            menunmap()
+            option = int(input())
+            if option == 1:
+                nmap1()
+
+            elif option == 2:
+                nmap2()
+
+            elif option == 3:
+                nmap3()
+
+            elif option == 4:
+                nmap4()
+                
+            elif option == 5:
+                break
+
+            elif option == 6:
+                f.close()
+                print("\nPots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
+                bot.polling()
+
+            elif option == 7:
+                f.close()
+                os._exit(0)
+        break
+
+    elif option == 4:
         break
