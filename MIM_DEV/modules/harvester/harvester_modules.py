@@ -5,7 +5,7 @@ import yaml
 import requests
 import telebot
 from MIM_DEV.data.config import TELEGRAM_API_KEY
-import shutil  # Importa la biblioteca shutil
+import shutil  
 
 def load_api_keys(api_keys_file):
     try:

@@ -37,10 +37,17 @@ def handle_stop(message):
     message_id = message.message_id
 
     for i in range(5):
-        bot.delete_message(chat_id, message_id - i)
-
+        try:
+            bot.delete_message(chat_id, message_id - i)
+        except telebot.apihelper.ApiTelegramException as e:
+            if "message to delete not found" in str(e):
+                pass
+            else:
+                print(f"Error al eliminar el mensaje: {e}")
+    
     print(banner.renderText("# MIM #"))
     os._exit(0)
+
 
 with open("resultats.json", "w") as f:
     f.write(format_data + "\n")
@@ -115,7 +122,7 @@ while True:
         
         def menuharvester():
             print("1. Executar The Harvester")
-            print("2. Veure resultats a Telegram")
+            print("2. Veure resultats a Telegram i surtir")
             print("3. Tornar al menú principal")
             print("4. Sortir del programa")
 
@@ -125,17 +132,19 @@ while True:
             if option == 1:
                 print("Introdueix l'objectiu (domini o adreça IP):")
                 target = input()
-                harvester_modules.run_the_harvester(target)  # Llama a la función de The Harvester
+                harvester_modules.run_the_harvester(target) 
 
             elif option == 2:
+                f.close()
                 print("Pots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
+                bot.polling()
 
             elif option == 3:
-                break  # Volver al menú principal
+                break 
 
             elif option == 4:
-                print("Sortint del programa.")
-                exit()
+                f.close()
+                os._exit(0)
 
     elif option == 3:
         print("Has escollit el menu d'escaneig (Nmap). Ara, escull una de les següents opcions:\n")
@@ -169,7 +178,7 @@ while True:
 
             elif option == 6:
                 f.close()
-                print("\nPots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
+                print("Pots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
                 bot.polling()
 
             elif option == 7:
