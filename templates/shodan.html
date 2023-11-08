@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shodan Menu</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/shodan_styles.css">
+</head>
+<body>
+    <div class="menu-shodan">
+        <a href="/shodan">Shodan API</a>
+        <a href="/harvester">The Harvester</a>
+        <a href="/nmap">Escaneo (Nmap)</a>
+        <a href="/ssh">Auditoría SSH</a>
+        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+    </div>
+    <h1>Menú de l'API de Shodan</h1>
+
+    <form method="POST">
+        <label for="domain">Insereix un objectiu en format URL</label>
+        <input type="text" name="domain" required>
+        <br><br>
+        
+        <label for="option">Escull una de les següents opcions:</label>
+        <select name="option" id="option">
+            <option value="1">Cerca d'informació de l'API de Shodan</option>
+            <option value="2">Noms de domini i ports oberts</option>
+            <option value="3">Servei relacionat a cada port</option>
+            <option value="4">A quines IP i quins ports puc trobar aquest servei?</option>
+        </select>
+        
+        <br><br>
+        
+        <label for="service_name">Insereix el nom del servei que vols escanejar:</label>
+        <input type="text" name="service_name">
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Results:</h2>
+    <ul>
+        {% for result in results %}
+            <li>
+                <ul>
+                    {% for key, value in result.items() %}
+                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST" action="/shodan">
+        <input type="submit" name="clear" value="Borrar resultados">
+        <input type="submit" name="send_results" value="Enviar resultats per Telegram">
+    </form>
+    
+</body>
+</html>

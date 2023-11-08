@@ -1,5 +1,2 @@
-Auditoria realitzada a data de 18-10-2023
-
-##~ Cerca d'informació de l'api de Shodan ~##
-IP: 157.240.249.35
-Organización: Facebook, Inc.
+Auditoria realitzada a data de 23-10-2023
+{"hosts":[],"shodan":[]}{"asns":["AS199496"],"emails":["alberthervas@iesebre.com","borsatreball@iesebre.com","candreu@iesebre.com","emprenedoria@iesebre.com","iesebre@iesebre.com","ioc@iesebre.com","lanparty@iesebre.com","manelmacias@iesebre.com","pedroguerrero@iesebre.com","quimgonzalez@iesebre.com","siop@iesebre.com","stur@iesebre.com"],"hosts":[],"interesting_urls":["https:\/\/www.iesebre.com\/\/"],"ips":["185.13.76.222","95.129.255.225"],"shodan":[]}

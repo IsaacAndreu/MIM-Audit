@@ -16,3 +16,6 @@ pip install aiodns
 pip install aiosqlite
 pip install pyppeteer
 pip install uvloop
+pip install subprocess
+pip install json
+pip install netaddr

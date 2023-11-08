@@ -17,21 +17,20 @@ def load_api_keys(api_keys_file):
         print(f"El archivo {api_keys_file} no se encontró en la ruta especificada.")
         return {}
 
-def run_the_harvester(target, api_keys_file="/projecte-23-24/api-keys.yaml"):
+def run_the_harvester(target, api_keys_file="/home/alumne/Escriptori/Code/Curs/projecte-23-24"):
     api_keys = load_api_keys(api_keys_file)
 
-    command = f"/usr/local/bin/theHarvester -d {target} -b all -l 500 -f harvester_results.json"
+    command = f"/usr/local/bin/theHarvester -d {target} -b all"
 
     try:
-        subprocess.call(command, shell=True)
+        print(f"Ejecutando comando: {command}")
+        output = subprocess.check_output(command, shell=True, text=True)
         print("The Harvester se ha ejecutado correctamente.")
 
-        with open("harvester_results.json", "r") as harvester_file:
-            harvester_results = harvester_file.read()
-
-        with open("resultats.json", "a") as resultats_file:
-            resultats_file.write(harvester_results)
-
+        return output
     except Exception as e:
         print(f"Error al ejecutar The Harvester: {str(e)}")
+        return f"Error al ejecutar The Harvester: {str(e)}"
+
+
 

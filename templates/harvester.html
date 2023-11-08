@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Harvester</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/harvester_styles.css">
+</head>
+<body>
+    <div class="menu-main">
+        <a href="/shodan">Shodan API</a>
+        <a href="/harvester">The Harvester</a>
+        <a href="/nmap">Escaneo (Nmap)</a>
+        <a href="/ssh">Auditoría SSH</a>
+        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+    </div>
+    <h1>Menú de The Harvester</h1>
+
+    <form method="POST">
+        <label for="domain">Introduce el objetivo (dominio o dirección IP):</label>
+        <input type="text" name="domain" required>
+        <br><br>
+        
+        <input type="submit" value="Ejecutar The Harvester">
+    </form>
+
+    <div id="processing-message" style="display: none;">
+        <p>Procesando resultados...</p>
+    </div>
+    <div id="loading" style="display: none;">
+        <div class="loader"></div>
+    </div>
+    <div id="results" style="display: none;">
+        <h2>Resultados:</h2>
+        <ul>
+            {% if results %}
+                <li>
+                    <pre>
+                        {{ results|safe }}
+                    </pre>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("results").style.display = "none";
+            document.getElementById("processing-message").style.display = "block";
+        }
+    
+        function showResults() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("results").style.display = "block";
+            document.getElementById("processing-message").style.display = "none";
+        }
+    
+        // Verificar el estado una vez que se carga la página
+        document.addEventListener('DOMContentLoaded', function () {
+            showLoading();
+            checkResults();
+        });
+    
+        // Función para comprobar si los resultados están listos
+        function checkResults() {
+            fetch("/check_harvester_results")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.results_ready) {
+                        showResults();
+                    } else {
+                        setTimeout(checkResults, 1000);
+                    }
+                });
+        }
+    </script>
+    
+    
+    
+    
+    
+
+    <form method="POST" action="/harvester">
+        <input type="submit" name="clear" value="Borrar resultados">
+    </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabecera */
+h1 {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    margin: 0; /* Elimina el margen superior para un aspecto más limpio */
+}
+
+/* Lista de opciones */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+/* Enlaces del menú */
+a {
+    text-decoration: none;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+    margin: 5px; /* Agrega un pequeño margen entre los enlaces */
+}
+
+a:hover {
+    background-color: #0056b3;
+}

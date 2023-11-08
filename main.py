@@ -8,10 +8,13 @@ import json
 import telebot
 import subprocess
 import nmap
+import re
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from MIM_DEV.modules.shodan import shodan_modules
 from MIM_DEV.data.config import TELEGRAM_API_KEY
 from MIM_DEV.modules.harvester import harvester_modules
 from MIM_DEV.modules.nmap.nmap_modules import nmap1, nmap2, nmap3, nmap4
+from MIM_DEV.modules.enum4linux.enum4linux_modules import run_enum4linux
 
 banner = Figlet(font='isometric4')
 
@@ -48,9 +51,15 @@ def handle_stop(message):
     print(banner.renderText("# MIM #"))
     os._exit(0)
 
-
 with open("resultats.json", "w") as f:
     f.write(format_data + "\n")
+
+def is_valid_url(url):
+    url_pattern = re.compile(r'^[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}(/?|/.*?)$')
+    return re.match(url_pattern, url) is not None
+
+def is_valid_number(input_str):
+    return input_str.isdigit()
 
 print(banner.renderText("# M I M #"))
 print("## Benvingut al menú del projecte ##")
@@ -89,21 +98,40 @@ while True:
             menushodan()
             option = int(input())
             if option == 1:
-                domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan_modules.shodan1(domini_objectiu)
-            
+                while True:
+                    domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
+                    if is_valid_url(domini_objectiu):
+                        shodan_modules.shodan1(domini_objectiu)
+                        break
+                    else:
+                        print("URL no válida. Introdueix una URL válida.")
             elif option == 2:
-                domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan_modules.shodan2(domini_objectiu)
+                while True:
+                    domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
+                    if is_valid_url(domini_objectiu):
+                        shodan_modules.shodan2(domini_objectiu)
+                        break
+                    else:
+                        print("URL no válida. Introdueix una URL válida.")
             
             elif option == 3:
-                domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
-                shodan_modules.shodan3(domini_objectiu)
+                while True:
+                    domini_objectiu = str(input("Insereix un objectiu en format URL (ex: www.google.com)\n"))
+                    if is_valid_url(domini_objectiu):
+                        shodan_modules.shodan3(domini_objectiu)
+                        break
+                    else:
+                        print("URL no válida. Introdueix una URL válida.")
             
             elif option == 4:
-                domini_objectiu = input("Insereix un objectiu en format URL (ex: www.google.com\n")
-                service_name = input("Insereix el nom del servei que vols escanejar :\n")
-                shodan_modules.shodan4(service_name, domini_objectiu)
+                while True:
+                    domini_objectiu = input("Insereix un objectiu en format URL (ex: www.google.com\n")
+                    service_name = input("Insereix el nom del servei que vols escanejar :\n")
+                    if is_valid_url(domini_objectiu):
+                        shodan_modules.shodan4(service_name, domini_objectiu)
+                        break
+                    else:
+                        print("URL no válida. Introdueix una URL válida.")
 
             elif option == 5:
                 break
@@ -122,7 +150,7 @@ while True:
         
         def menuharvester():
             print("1. Executar The Harvester")
-            print("2. Veure resultats a Telegram i surtir")
+            print("2. Rebre resultats i sortir")
             print("3. Tornar al menú principal")
             print("4. Sortir del programa")
 
@@ -187,4 +215,47 @@ while True:
         break
 
     elif option == 4:
-        break
+        print("Has escollit el menú d'auditoria SSH. Ara, escull les següents opcions:\n")
+
+
+    elif option == 5:
+        print("Has escollit el menú d'escaneig (Enum4linux). Ara, escull les següents opcions:\n")
+
+        def menuenum4():
+            print("1. Executar Enum4linux")
+            print("2. Rebre resultats i sortir")
+            print("3. Tornar al menú principal")
+            print("4. Sortir del programa")
+        
+        while True:
+            menuenum4()
+            option = int(input())
+            if option == 1:
+                print("Introduiu l'objectiu (domini o adreça IP):")
+                target = input()
+            
+                run_enum4linux(target)
+                print("Enum4linux ha finalitzat.")
+            
+            elif option == 2:
+                f.close()
+                print("Pots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
+                bot.polling()
+            
+            elif option == 3:
+                break
+
+            elif option == 4:
+                f.close()
+                os._exit(0)
+    
+    elif option == 6:
+        f.close()
+        print("Pots trobar els resultats accedint al següent enllaç: https://t.me/projecte2324_bot")
+        bot.polling()
+    
+    elif option == 7:
+        f.close()
+        os._exit(0)
+
+    
