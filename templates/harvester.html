@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Harvester</title>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvester</title>
     <link rel="stylesheet" type="text/css" href="/static/harvester_styles.css">
 </head>
 <body>
@@ -15,7 +17,7 @@
     </div>
     <h1>Menú de The Harvester</h1>
 
-    <form method="POST">
+    <form method="POST" id="harvester-form">
         <label for="domain">Introduce el objetivo (dominio o dirección IP):</label>
         <input type="text" name="domain" required>
         <br><br>
@@ -23,65 +25,49 @@
         <input type="submit" value="Ejecutar The Harvester">
     </form>
 
+    <!-- Agrega un contenedor para el mensaje de procesamiento -->
     <div id="processing-message" style="display: none;">
-        <p>Procesando resultados...</p>
-    </div>
-    <div id="loading" style="display: none;">
-        <div class="loader"></div>
-    </div>
-    <div id="results" style="display: none;">
-        <h2>Resultados:</h2>
-        <ul>
-            {% if results %}
-                <li>
-                    <pre>
-                        {{ results|safe }}
-                    </pre>
-                </li>
-            {% endif %}
-        </ul>
+        <h2>Procesando resultados...</h2>
     </div>
 
-    <script>
-        function showLoading() {
-            document.getElementById("loading").style.display = "block";
-            document.getElementById("results").style.display = "none";
-            document.getElementById("processing-message").style.display = "block";
-        }
+    <h2>Resultados del Harvester:</h2>
+    <div id="results" style="display: block;"> 
+        {% if results %}
+            {% for result in results %}
+                <div class="result">
+                    <pre>{{ result['results'] }}</pre>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay resultados disponibles.</p>
+        {% endif %}
+    </div>
     
-        function showResults() {
-            document.getElementById("loading").style.display = "none";
-            document.getElementById("results").style.display = "block";
-            document.getElementById("processing-message").style.display = "none";
-        }
-    
-        // Verificar el estado una vez que se carga la página
-        document.addEventListener('DOMContentLoaded', function () {
-            showLoading();
-            checkResults();
-        });
-    
-        // Función para comprobar si los resultados están listos
-        function checkResults() {
-            fetch("/check_harvester_results")
-                .then(response => response.json())
-                .then(data => {
-                    if (data.results_ready) {
-                        showResults();
-                    } else {
-                        setTimeout(checkResults, 1000);
-                    }
-                });
-        }
-    </script>
-    
-    
-    
-    
-    
-
     <form method="POST" action="/harvester">
         <input type="submit" name="clear" value="Borrar resultados">
     </form>
+
+    <!-- Agrega el código JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const processingMessage = document.getElementById('processing-message');
+            const resultsContainer = document.getElementById('results');
+            const harvesterForm = document.getElementById('harvester-form');
+
+            harvesterForm.addEventListener('submit', function () {
+                // Muestra el mensaje de procesamiento antes de enviar el formulario
+                processingMessage.style.display = 'block';
+                resultsContainer.style.display = 'none';
+            });
+
+            // Opcional: Puedes ocultar el mensaje de procesamiento después de un tiempo simulando la espera
+            harvesterForm.addEventListener('submit', function () {
+                setTimeout(function () {
+                    processingMessage.style.display = 'none';
+                    resultsContainer.style.display = 'block';
+                }, 3000); // 3000 milisegundos (3 segundos) - ajusta según sea necesario
+            });
+        });
+    </script>
 </body>
 </html>

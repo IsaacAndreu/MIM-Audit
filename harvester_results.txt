@@ -1,0 +1,87 @@
+*******************************************************************
+*  _   _                                            _             *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __|  _ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester 4.4.4                                              *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*                                                                 *
+*******************************************************************
+
+[*] Target: www.iesebre.com 
+
+'bevigil'
+'binaryedge'
+'bufferoverun'
+An excepion has occurred in criminalip: 'criminalip'
+
+[93m[!] Missing API key for Github. [0m
+An exception has occurred in hunterhow search: 'hunterhow'
+'onyphe'
+An exception has occurred in PentestTools search: 'pentestTools'
+An exception has occurred in ProjectDiscovery
+An exception has occurred in RocketReach: 'rocketreach'
+[94m[*] Searching Anubis. 
+	Searching 0 results.
+[94m[*] Searching Bing. 
+[94m[*] Searching Baidu. 
+	Searching results.
+[94m[*] Searching Certspotter. 
+[94m[*] Searching CRTsh. 
+[94m[*] Searching Dnsdumpster. 
+[94m[*] Searching Duckduckgo. 
+[94m[*] Searching Hackertarget. 
+An exception has occurred in Intelx: Expected object or value
+[94m[*] Searching Intelx. 
+[94m[*] Searching Otx. 
+[94m[*] Searching Hunter. 
+[94m[*] Searching Rapiddns. 
+Sitedossier module has triggered a captcha on first iteration, no results can be found.
+Change IPs, manually solve the captcha, or wait before rerunning Sitedossier module
+[94m[*] Searching Sitedossier. 
+[94m[*] Searching Subdomaincenter. 
+[94m[*] Searching Subdomainfinderc99. 
+	Done Searching Results
+[94m[*] Searching SecurityTrails. 
+[94m[*] Searching Urlscan. 
+[94m[*] Searching Threatminer. 
+[94m[*] Searching Yahoo. 
+[94m[*] Searching Brave. 
+
+[*] ASNS found: 1
+--------------------
+AS199496
+
+[*] Interesting Urls found: 1
+--------------------
+https://www.iesebre.com//
+
+[*] LinkedIn Links found: 0
+---------------------
+
+[*] IPs found: 3
+-------------------
+185.13.76.222
+95.129.255.225
+
+[*] Emails found: 16
+----------------------
+alberthervas@iesebre.com
+borsatreball@iesebre.com
+candreu@iesebre.com
+iesebre@iesebre.com
+ioc@iesebre.com
+lanparty@iesebre.com
+manelmacias@iesebre.com
+pedroguerrero@iesebre.com
+quimgonzalez@iesebre.com
+siop@iesebre.com
+stur@iesebre.com
+
+[*] No hosts found.
+
+

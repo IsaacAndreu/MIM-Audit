@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, jsonify
-import json  # Agrega esta línea para importar el módulo 'json'
+from flask import Flask, render_template, request, jsonify, redirect, url_for
+import json
+import subprocess
+import yaml
 from MIM_DEV.modules.shodan.shodan_modules import shodan1, shodan2, shodan3, shodan4
 from MIM_DEV.modules.harvester.harvester_modules import run_the_harvester
 from MIM_DEV.data.config import SHODAN_API_KEY
@@ -77,33 +79,57 @@ def shodan_menu():
 
     return render_template('shodan.html', results=all_results)
 
-def run_the_harvester_process(domain):
-    run_the_harvester(domain, api_keys_file="/home/alumne/Escriptori/Code/Curs/projecte-23-24/api-keys.yaml")
+# Resto del código...
+
+# Resto del código...
+
+# Resto del código...
 
 @app.route('/harvester', methods=['GET', 'POST'])
 def harvester_menu():
-    processing = False
-    show_loading_message = False
-    results = None
+    global all_results
 
     if request.method == 'POST':
-     domain = request.form.get('domain')
-     if domain:
-        processing = True
-        show_loading_message = True
-        p = multiprocessing.Process(target=run_the_harvester_process, args=(domain,))
-        p.start()
-        p.join()  # Esperar a que el proceso de TheHarvester termine
-        with open("/home/alumne/Escriptori/Code/Curs/projecte-23-24/harvester_results.json", "r") as file:
-            results = json.load(file)
-        show_loading_message = False
-    
-    return render_template('harvester.html', results=results, processing=processing, show_loading_message=show_loading_message)
+        domain = request.form.get('domain')
 
-@app.route('/check_harvester_results')
-def check_harvester_results():
-    global all_results
-    return jsonify({'results_ready': len(all_results) > 0})
+        if 'clear' in request.form:
+            # Borrar resultados
+            all_results = []
+            with open('harvester_results.json', 'w') as json_file:
+                json.dump(all_results, json_file)
+        else:
+            # Intenta leer los resultados desde el archivo JSON existente
+            try:
+                with open('harvester_results.json', 'r') as json_file:
+                    # Verifica que el archivo no esté vacío antes de intentar cargarlo
+                    file_content = json_file.read()
+                    if file_content:
+                        all_results = json.loads(file_content)
+                    else:
+                        all_results = []
+            except FileNotFoundError:
+                # Si el archivo no existe, deja all_results como una lista vacía
+                all_results = []
+
+            if domain:
+                # Ejecutar The Harvester
+                harvester_results = run_the_harvester(domain)
+
+                # Agregar los resultados a all_results
+                print(f"Contenido de harvester_results: {harvester_results}")
+                if 'results' in harvester_results[0]:
+                    all_results.extend(harvester_results)
+
+                # Escribir los resultados actualizados en el archivo JSON
+                with open('harvester_results.json', 'w') as json_file:
+                    json.dump(all_results, json_file)
+
+        # Resto del código...
+
+    return render_template('harvester.html', results=clean_results(all_results))
+
+# Resto del código...
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
