@@ -4,6 +4,21 @@
     <title>Shodan Menu</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/static/shodan_styles.css">
+    <script>
+        function toggleServiceNameInput() {
+            var optionSelect = document.getElementById("option");
+            var serviceNameLabel = document.getElementById("service_name_label");
+            var serviceNameInput = document.getElementById("service_name");
+
+            if (optionSelect.value === "4") {
+                serviceNameLabel.style.display = "block";
+                serviceNameInput.style.display = "block";
+            } else {
+                serviceNameLabel.style.display = "none";
+                serviceNameInput.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="menu-shodan">
@@ -21,7 +36,7 @@
         <br><br>
         
         <label for="option">Escull una de les següents opcions:</label>
-        <select name="option" id="option">
+        <select name="option" id="option" onchange="toggleServiceNameInput()">
             <option value="1">Cerca d'informació de l'API de Shodan</option>
             <option value="2">Noms de domini i ports oberts</option>
             <option value="3">Servei relacionat a cada port</option>
@@ -30,8 +45,8 @@
         
         <br><br>
         
-        <label for="service_name">Insereix el nom del servei que vols escanejar:</label>
-        <input type="text" name="service_name">
+        <p id="service_name_label" style="display:none;">Insereix el nom del servei que vols escanejar:</p>
+        <input type="text" name="service_name" id="service_name" style="display:none;">
         <br><br>
 
         <input type="submit" value="Submit">
