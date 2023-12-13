@@ -1,0 +1,92 @@
+[*] Target: www.iesebre.com
+_   _                                            _             
+ | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  
+ | __|  _ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| 
+ | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    
+  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    
+                                                                 
+                                               
+                                    
+                                           
+                                    
+                                                                 
+
+
+[] Target: www.iesebre.com 
+
+'bevigil'
+'binaryedge'
+'bufferoverun'
+An excepion has occurred in criminalip: 'criminalip'
+
+[!] Missing API key for Github. 
+An exception has occurred in hunterhow search: 'hunterhow'
+'onyphe'
+An exception has occurred in PentestTools search: 'pentestTools'
+An exception has occurred in ProjectDiscovery
+An exception has occurred in RocketReach: 'rocketreach'
+[] Searching Anubis. 
+	Searching 0 results.
+[] Searching Bing. 
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=%22www.iesebre.com%22&offset=0&source=web&show_local=0&spellcheck=0')
+[] Searching Baidu. 
+	Searching results.
+[] Searching Certspotter. 
+[] Searching CRTsh. 
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=%22www.iesebre.com%22&offset=1&source=web&show_local=0&spellcheck=0')
+[] Searching Dnsdumpster. 
+[] Searching Duckduckgo. 
+[] Searching Hackertarget. 
+An exception has occurred in Intelx: Expected object or value
+[] Searching Intelx. 
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=%22www.iesebre.com%22&offset=2&source=web&show_local=0&spellcheck=0')
+[] Searching Otx. 
+[] Searching Hunter. 
+[] Searching Rapiddns. 
+Sitedossier module has triggered a captcha on first iteration, no results can be found.
+Change IPs, manually solve the captcha, or wait before rerunning Sitedossier module
+[] Searching Sitedossier. 
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=%22www.iesebre.com%22&offset=3&source=web&show_local=0&spellcheck=0')
+	Done Searching Results
+[] Searching SecurityTrails. 
+[] Searching Subdomainfinderc99. 
+[] Searching Threatminer. 
+[] Searching Subdomaincenter. 
+[] Searching Urlscan. 
+[] Searching Yahoo. 
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=site:www.iesebre.com&offset=0&source=web&show_local=0&spellcheck=0')
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=site:www.iesebre.com&offset=1&source=web&show_local=0&spellcheck=0')
+An exception has occurred: 400, message='Got more than 8190 bytes (12267) when reading Header value is too long.', url=URL('https://search.brave.com/search?q=site:www.iesebre.com&offset=2&source=web&show_local=0&spellcheck=0')
+[] Searching Brave. 
+
+[] ASNS found: 1
+--------------------
+AS199496
+
+[] Interesting Urls found: 1
+--------------------
+https://www.iesebre.com//
+
+[] LinkedIn Links found: 0
+---------------------
+
+[] IPs found: 4
+-------------------
+185.13.76.222
+95.129.255.225
+
+[] Emails found: 13
+----------------------
+alberthervas@iesebre.com
+borsatreball@iesebre.com
+candreu@iesebre.com
+iesebre@iesebre.com
+ioc@iesebre.com
+lanparty@iesebre.com
+manelmacias@iesebre.com
+pedroguerrero@iesebre.com
+quimgonzalez@iesebre.com
+siop@iesebre.com
+stur@iesebre.com
+
+[] No hosts found.

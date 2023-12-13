@@ -45,6 +45,7 @@
     
     <form method="POST" action="/harvester">
         <input type="submit" name="clear" value="Borrar resultados">
+        <input type="submit" name="send_results" value="Enviar resultados por Telegram">
     </form>
 
     <!-- Agrega el código JavaScript -->
@@ -55,7 +56,6 @@
             const harvesterForm = document.getElementById('harvester-form');
 
             harvesterForm.addEventListener('submit', function () {
-                // Muestra el mensaje de procesamiento antes de enviar el formulario
                 processingMessage.style.display = 'block';
                 resultsContainer.style.display = 'none';
             });
