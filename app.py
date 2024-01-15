@@ -116,31 +116,105 @@ def send_harvester_results_to_telegram():
         with open('harvester_results.json', 'r') as file:
             results_data = json.load(file)
 
-            # Extraer la sección de resultados específica
+
             specific_results = results_data.get('results', '')
 
-            # Eliminar los enlaces
+    
             specific_results = re.sub(r'\[.*?\]\(.*?\)', '', specific_results)
 
-            # Eliminar los asteriscos del contenido
             specific_results = specific_results.replace('*', '')
 
-            # Dividir el contenido en partes de longitud máxima permitida por la API de Telegram
-            max_message_length = 4096  # Longitud máxima permitida por la API de Telegram
+           
+            max_message_length = 4096 
             message_parts = [specific_results[i:i + max_message_length] for i in range(0, len(specific_results), max_message_length)]
 
             chat_id = '1036744939'
 
-            # Enviar cada parte como un mensaje separado
-            for part in message_parts[:-1]:  # Enviar todo excepto la última parte
+            for part in message_parts[:-1]:  
                 bot.send_message(chat_id, part)
 
-            # Enviar la última parte (que contiene correos electrónicos) en otro mensaje
+            
             bot.send_message(chat_id, message_parts[-1])
     except FileNotFoundError:
         print("File 'harvester_results.json' not found.")
     except Exception as e:
         print(f"Error sending Harvester results to Telegram: {e}")
+
+@app.route('/nmap', methods=['GET', 'POST'])
+def nmap_menu():
+    global all_results
+
+    try:
+        if request.method == 'POST':
+            option = request.form.get('option')
+            if option == '1':
+                xarxa = request.form.get('xarxa')
+                result_nmap1 = nmap1(xarxa)
+
+                return render_template('nmap.html', result_nmap1=result_nmap1)
+
+            elif option == '2':
+                ip2 = request.form.get('ip2')
+                result_nmap2 = nmap2(ip2)
+                
+                return render_template('nmap.html', result_nmap2=result_nmap2)
+
+            elif option == '3':
+                ip3 = request.form.get('ip3')
+                ports = request.form.get('ports')
+                result_nmap3 = nmap3(ip3, ports)
+                
+                return render_template('nmap.html', result_nmap3=result_nmap3)
+
+            elif option == '4':
+                ip4 = request.form.get('ip4')
+                ports4 = request.form.get('ports4')
+                result_nmap4 = nmap4(ip4, ports4)
+                
+                return render_template('nmap.html', result_nmap4=result_nmap4)
+
+            else:
+                results = []
+
+                if isinstance(results, list) and all(isinstance(result, dict) for result in results):
+                    all_results.extend(results)
+
+    except Exception as e:
+        error_message = f"Error en la aplicación: {str(e)}"
+        return render_template('error.html', error_message=error_message)
+
+    if 'clear' in request.form:
+            all_results.clear()
+            send_nmap_results_to_file()
+
+    elif 'send_results' in request.form:
+        if all_results:
+            chat_id = '1036744939'
+            bot.send_message(chat_id, 'Enviando archivo Nmap Results...')
+            send_nmap_results_to_file()
+            send_nmap_file_to_telegram()
+
+    return render_template('nmap.html', results=all_results)
+
+def send_nmap_results_to_file():
+    global all_results
+    try:
+        with open('nmap_results.json', 'w') as json_file:
+            json.dump(all_results, json_file)
+    except Exception as e:
+        print(f"Error al guardar resultados en nmap_results.json: {e}")
+
+def send_nmap_file_to_telegram():
+    global bot
+    chat_id = '1036744939'
+
+    try:
+        with open('nmap_results.json', 'rb') as file:
+            bot.send_document(chat_id, file)
+    except Exception as e:
+        print(f"Error al enviar archivo a Telegram: {e}")
+
+all_results = []
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)

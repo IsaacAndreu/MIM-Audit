@@ -1,0 +1,129 @@
+MarcQueral, [10/1/24 20:53]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nmap Menu</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/nmap_styles.css">
+</head>
+<body>
+    <div class="menu-nmap">
+        <a href="/shodan">Shodan API</a>
+        <a href="/harvester">The Harvester</a>
+        <a href="/nmap">Escaneo (Nmap)</a>
+        <a href="/ssh">Auditoría SSH</a>
+        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+    </div>
+    <h1>Menú de l'escaneig Nmap</h1>
+
+    <form method="POST">
+        <label for="option">Escull una de les següents opcions:</label>
+        <select name="option" id="option">
+            <option value="1">Descobrir hosts de xarxa.</option>
+            <option value="2">Escaneig de ports oberts.</option>
+            <option value="3">Llistat de serveis i versions d'un, un rang o tots els ports.</option>
+            <option value="4">Llistat de vulnerabilitats d'un, un rang o tots els serveis.</option>
+        </select>
+
+        <div class="option-fields" id="option-1" style="display: none;">
+            <label for="xarxa">Introdueix la xarxa a escanejar (ex: 192.168.1.0/24):</label>
+            <input type="text" name="xarxa">
+        </div>
+    
+        <div class="option-fields" id="option-2" style="display: none;">
+            <label for="ip2">Introdueix la IP o el nom del host a escanejar (ex: 192.168.1.0):</label>
+            <input type="text" name="ip2">
+        </div>
+    
+        <div class="option-fields" id="option-3" style="display: none;">
+            <label for="ip3">Introdueix la IP o el nom del host a escanejar (ex: 192.168.1.0):</label>
+            <input type="text" name="ip3">
+            <br><br>
+            <label for="ports">Introdueix el port o rang de ports a escanejar (ex: 80,443 o 1-100):</label>
+            <input type="text" name="ports">
+        </div>
+    
+        <div class="option-fields" id="option-4" style="display: none;">
+            <label for="ip4">Introdueix la IP o el nom del host a escanejar (ex: 192.168.1.0):</label>
+            <input type="text" name="ip4">
+            <br><br>
+            <label for="ports4">Introdueix el port o rang de ports a escanejar (ex: 80,443 o 1-100):</label>
+            <input type="text" name="ports4">
+        </div>
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Hosts de xarxa:</h2>
+    {% if result_nmap1 %}
+        <p>{{ result_nmap1['message'] }}</p>
+        <ul>
+            {% for host in result_nmap1['hosts'] %}
+                <li>{{ host }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h2>Ports oberts:</h2>
+    {% if result_nmap2 %}
+        <p>{{ result_nmap2['message'] }}</p>
+        <ul>
+            {% for port_info in result_nmap2['ports'] %}
+                <li>
+                    - <strong>Port:</strong> {{ port_info['port'] }} ({{ port_info['service'] }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h2>Serveis i versions:</h2>
+    {% if result_nmap3 %}
+        <p>{{ result_nmap3['message'] }}</p>
+        <ul>
+            {% for service_version in result_nmap3['services_versions'] %}
+                <li>
+                    - <strong>Servei:</strong> {{ service_version['service'] }}, <strong>Versió:</strong> {{ service_version['version'] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h2>Vulnerabilitats:</h2>
+    {% if result_nmap4 %}
+    <p>{{ result_nmap4['message'] }}</p>
+    <ul>
+        {% for vulnerability in result_nmap4['vulnerabilities'] %}
+            <li>
+                IP: {{ vulnerability['ip_address'] }}, Port: {{ vulnerability['port'] }},
+                Protocol: {{ vulnerability['protocol'] }}, Service: {{ vulnerability['service'] }},
+                Vulnerability: {{ vulnerability['vulnerability'] }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+MarcQueral, [10/1/24 20:53]
+<form method="POST" action="/nmap">
+        <input type="submit" name="clear" value="Borrar resultados">
+        <input type="submit" name="send_results" value="Enviar resultats per Telegram">
+    </form>
+    
+    <script>
+        document.getElementById('option').addEventListener('change', function () {
+            var fields = document.getElementsByClassName('option-fields');
+            for (var i = 0; i < fields.length; i++) {
+                fields[i].style.display = 'none';
+            }
+
+            var selectedOption = this.value;
+            var selectedFields = document.getElementById('option-' + selectedOption);
+            if (selectedFields) {
+                selectedFields.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
