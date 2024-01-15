@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 import json
 import telebot
 import re
+from MIM_DEV.modules.nmap.nmap_modules import nmap1, nmap2, nmap3, nmap4
 from MIM_DEV.modules.shodan.shodan_modules import shodan1, shodan2, shodan3, shodan4
 from MIM_DEV.modules.harvester.harvester_modules import run_the_harvester
 from MIM_DEV.data.config import TELEGRAM_API_KEY
