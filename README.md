@@ -3,30 +3,21 @@
 *Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [code.iadb.org](https://code.iadb.org)*
 
 <h1 align="center">MIM Audit</h1>
-<p align="center"> Logo e imagen o gif de la interfaz principal de la herramienta</p>
 <p align="center"><img src="images/logo.png"/></p> 
 
 ## Tabla de contenidos:
 ---
 
-- [Badges o escudos](#badges-o-escudos)
-- [Descripción y contexto](#descripción-y-contexto)
-- [Guía de usuario](#guía-de-usuario)
-- [Guía de instalación](#guía-de-instalación)
-- [Cómo contribuir](#cómo-contribuir)
+- [Descripció i context](#descripción-y-contexto)
+- [Fet amb](#fet-amb)
+- [Guía de usuari](#guía-de-usuario)
+- [Guía de instalació](#guía-de-instalación)
 - [Código de conducta](#código-de-conducta)
 - [Autor/es](#autores)
 - [Información adicional](#información-adicional)
 - [Licencia](#licencia)
 - [Limitación de responsabilidades - Solo BID](#limitación-de-responsabilidades)
 
-## Badges
----
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
 ## Descripció i context
 ---
@@ -41,6 +32,15 @@ Funcionalitats principals
 * Enum4linux
 * Enviar els resultats a Telegram
 * Imatge del contenedor docker
+
+## Fet amb
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" width="200">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" width="200">
+</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Guía de usuario
 ---
@@ -68,9 +68,6 @@ Funcionalitats principals
     pip install -r requeriments.txt
     '''
 
-## Cómo contribuir
----
-Esta sección explica a desarrolladores cuáles son las maneras habituales de enviar una solicitud de adhesión de nuevo código (“pull requests”), cómo declarar fallos en la herramienta y qué guías de estilo se deben usar al escribir más líneas de código. También puedes hacer un listado de puntos que se pueden mejorar de tu código para crear ideas de mejora.
 
 ## Código de conducta 
 ---

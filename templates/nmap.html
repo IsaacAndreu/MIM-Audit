@@ -1,4 +1,4 @@
-MarcQueral, [10/1/24 20:53]
+Queralet, [15/1/24 20:59]
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +56,8 @@ MarcQueral, [10/1/24 20:53]
         <input type="submit" value="Submit">
     </form>
 
-    <h2>Hosts de xarxa:</h2>
     {% if result_nmap1 %}
+        <h2>Hosts de xarxa:</h2>
         <p>{{ result_nmap1['message'] }}</p>
         <ul>
             {% for host in result_nmap1['hosts'] %}
@@ -66,8 +66,8 @@ MarcQueral, [10/1/24 20:53]
         </ul>
     {% endif %}
 
-    <h2>Ports oberts:</h2>
     {% if result_nmap2 %}
+        <h2>Ports oberts:</h2>
         <p>{{ result_nmap2['message'] }}</p>
         <ul>
             {% for port_info in result_nmap2['ports'] %}
@@ -78,8 +78,8 @@ MarcQueral, [10/1/24 20:53]
         </ul>
     {% endif %}
 
-    <h2>Serveis i versions:</h2>
     {% if result_nmap3 %}
+        <h2>Serveis i versions:</h2>
         <p>{{ result_nmap3['message'] }}</p>
         <ul>
             {% for service_version in result_nmap3['services_versions'] %}
@@ -90,21 +90,21 @@ MarcQueral, [10/1/24 20:53]
         </ul>
     {% endif %}
 
-    <h2>Vulnerabilitats:</h2>
     {% if result_nmap4 %}
-    <p>{{ result_nmap4['message'] }}</p>
-    <ul>
-        {% for vulnerability in result_nmap4['vulnerabilities'] %}
-            <li>
-                IP: {{ vulnerability['ip_address'] }}, Port: {{ vulnerability['port'] }},
-                Protocol: {{ vulnerability['protocol'] }}, Service: {{ vulnerability['service'] }},
-                Vulnerability: {{ vulnerability['vulnerability'] }}
-            </li>
-        {% endfor %}
-    </ul>
+        <h2>Vulnerabilitats:</h2>
+        <p>{{ result_nmap4['message'] }}</p>
+        <ul>
+            {% for vulnerability in result_nmap4['vulnerabilities'] %}
+                <li>
+                    IP: {{ vulnerability['ip_address'] }}, Port: {{ vulnerability['port'] }},
+                    Protocol: {{ vulnerability['protocol'] }}, Service: {{ vulnerability['service'] }},
+                    Vulnerability: {{ vulnerability['vulnerability'] }}
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
 
-MarcQueral, [10/1/24 20:53]
+Queralet, [15/1/24 20:59]
 <form method="POST" action="/nmap">
         <input type="submit" name="clear" value="Borrar resultados">
         <input type="submit" name="send_results" value="Enviar resultats per Telegram">
