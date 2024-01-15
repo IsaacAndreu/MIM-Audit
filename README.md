@@ -3,7 +3,6 @@
 *Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [code.iadb.org](https://code.iadb.org)*
 
 <h1 align="center">MIM Audit</h1>
-<p align="center"> Logo e imagen o gif de la interfaz principal de la herramienta</p>
 <p align="center"><img src="images/logo.png"/></p> 
 
 ## Tabla de contenidos:
