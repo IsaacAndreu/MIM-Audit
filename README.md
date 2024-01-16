@@ -69,31 +69,55 @@ Funcionalitats principals
 ---
 Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
 
-Menú principal
+### Menú principal
 En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com Shodan API, The Harvester, Escaneo(Nmap), Auditoria SSH i Escaneo (Enum4Linux)
 
-Instruccions generals
+<p align="center">
+  <img src="images/MenuPrincipal.png" alt="menuprincipal" width="40%">
+</p>
+
+### Instruccions generals
 Cada eina té una secció on podeu introduir la IP o URL que volveu analitzar. Algunes eines tenen una barra de selecció perquè pugueu triar entre diferents funcions. Assegureu-vos de proporcionar la informació correcta abans de procedir.
 
-Shodan API
+### Shodan API
 Comencem amb Shodan API. Introduïu la IP o URL a la barra corresponent. Podeu triar diferents opcions de cerca mitjançant la barra de selecció. Un cop fet, feu clic a "Enviar" i espereu els resultats a la part inferior. 
+
+<p align="center">
+  <img src="images/ShodanAPI.png" alt="shodanapi" width="40%">
+</p>
 
 ### The Harvester
 Amb The Harvester, introduïu la IP o URL desitjada i seleccioneu les opcions necessàries. Cliqueu "Executar The Harvester" per iniciar l'eina. Els resultats hi tarden uns 3 o 5 mins en mostrarse a la part inferior de la pàgina.
 
-Escaneig (Nmap)
+<p align="center">
+  <img src="images/TheHarvester.png" alt="TheHarvester" width="40%">
+</p>
+
+### Escaneig (Nmap)
 Amb Nmap primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o nom del host que voleu escanejar i trieu les opcions de l'escaneig. Cliqueu a "Enviar" per iniciar el procés. Els resultats es mostraran sota la barra d'opcions
 
-Auditoria SSH
+<p align="center">
+  <img src="images/Nmap.png" alt="nmap" width="40%">
+</p>
+
+### Auditoria SSH
 En aquesta secció, primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o host corresponen a la màquina amb la qual voleu realitzar l'auditoria SSH. Cliqueu a "Iniciar Auditoria". Els resultats apareixeran a sota.
 
-Escaneig (Enum4Linux)
+<p align="center">
+  <img src="images/MenuSSH.png" alt="menussh" width="40%">
+</p>
+
+### Escaneig (Enum4Linux)
 Per a l'escaneig amb Enum4Linux, introduïu la IP i cliqueu a "Iniciar Escaneig". Els resultats estaran disponibles a la part inferior.
 
-Resultats
+<p align="center">
+  <img src="images/Enum4Linux.png" alt="enum4linux" width="40%">
+</p>
+
+### Resultats
 Després de completar cada anàlisi, veureu els resultats a la part inferior de la pàgina. Teniu un botó per esborrar els resultats si cal, i també un botó per enviar-los via Telegram.
 
-Suport tècnic
+### Suport tècnic
 No dubteu a explorar les diferents eines i funcions per millorar la vostra auditoria. Si teniu algun dubte, consulteu la nostra secció de preguntes freqüents o poseu-vos en contacte amb el nostre suport tècnic. Gràcies per confiar en la nostra plataforma.
 
 
@@ -105,7 +129,11 @@ La plataforma Github premia y ayuda a los repositorios dispongan de este archivo
 
 ## Autor/es
 ---
-Nombra a el/los autor/es original/es. Consulta con ellos antes de publicar un email o un nombre personal. Una manera muy común es dirigirlos a sus cuentas de redes sociales.
+Marc Queral: https://github.com/MarcQueral
+Isaac Andreu: https://github.com/IsaacAndreu
+Max Segura: https://github.com/MaxSegura
+
+Link del projecte: https://github.com/IsaacAndreu/MIM-Audit
 
 ## Información adicional
 ---
