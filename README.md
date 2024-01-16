@@ -12,7 +12,7 @@
 - [Fet amb](#fet-amb)
 - [Prerequeriments](#prerequeriments)
 - [Guía de instalació](#guía-de-instalació)
-- [Guía de usuari](#guia-de-usuari)
+- [Guía de usuari](#guía-de-usuari)
 - [Código de conducta](#código-de-conducta)
 - [Autor/es](#autores)
 - [Licencia](#licencia)
@@ -46,24 +46,24 @@ Funcionalitats principals
 ---
 * Instal·lació de python i altres requeriments.
 
-    'sh
+    ```
     pip install -r requirements.txt
-    '
+    ```
  	
 ## Guía de instalació
 ---
 1. Clona aquest repositori a la teva màquina local:
-    'sh
+    ```
     git clone https://github.com/IsaacAndreu/MIM-Audit
-    '
+    ```
 2. Entra al directori del projecte:
-    'sh
+    ```
     cd MIM-Audit
-    '
+    ```
 3. Instal·la les dependencies necessaries:
-    'sh
+    ```
     pip install -r requeriments.txt
-    '
+    ```
 
 ## Guía de usuari
 ---
@@ -76,15 +76,15 @@ En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com
 ### Instruccions generals
 Cada eina té una secció on podeu introduir la IP o URL que volveu analitzar. Algunes eines tenen una barra de selecció perquè pugueu triar entre diferents funcions. Assegureu-vos de proporcionar la informació correcta abans de procedir.
 
-#### Shodan API
+### Shodan API
 Comencem amb Shodan API. Introduïu la IP o URL a la barra corresponent. Podeu triar diferents opcions de cerca mitjançant la barra de selecció. Un cop fet, feu clic a "Enviar" i espereu els resultats a la part inferior. 
 <p align="left"><img src="images/ShodanAPI.png></p> 
 
-#### The Harvester
+### The Harvester
 Amb The Harvester, introduïu la IP o URL desitjada i seleccioneu les opcions necessàries. Cliqueu "Executar The Harvester" per iniciar l'eina. Els resultats hi tarden uns 3 o 5 mins en mostrarse a la part inferior de la pàgina.
 <p align="left"><img src="images/TheHarvester.png></p> 
 
-#### Escaneig (Nmap)
+### Escaneig (Nmap)
 Amb Nmap primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o nom del host que voleu escanejar i trieu les opcions de l'escaneig. Cliqueu a "Enviar" per iniciar el procés. Els resultats es mostraran sota la barra d'opcions
 <p align="left"><img src="images/Nmap.png></p> 
 
