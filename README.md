@@ -73,7 +73,7 @@ Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a
 En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com Shodan API, The Harvester, Escaneo(Nmap), Auditoria SSH i Escaneo (Enum4Linux)
 <p align="left"><img src="images/MenuPrincipal.png></p> 
 
-### Instruccions generals
+## Instruccions generals
 
 Cada eina té una secció on podeu introduir la IP o URL que volveu analitzar. Algunes eines tenen una barra de selecció perquè pugueu triar entre diferents funcions. Assegureu-vos de proporcionar la informació correcta abans de procedir.
 
