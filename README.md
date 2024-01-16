@@ -11,8 +11,8 @@
 - [Descripció i context](#descripción-y-contexto)
 - [Fet amb](#fet-amb)
 - [Prerequeriments](#prerequeriments)
-- [Guía de instalació](#guía-de-instalación)
-- [Guía de usuari](#guía-de-usuario)
+- [Guía de instalació](#guía-de-instalació)
+- [Guía de usuari](#guia-d'usuari)
 - [Código de conducta](#código-de-conducta)
 - [Autor/es](#autores)
 - [Licencia](#licencia)
@@ -69,7 +69,7 @@ Funcionalitats principals
 ---
 Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
 
-### Menú principal
+## Menú principal
 En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com Shodan API, The Harvester, Escaneo(Nmap), Auditoria SSH i Escaneo (Enum4Linux)
 <p align="left"><img src="images/MenuPrincipal.png></p> 
 
