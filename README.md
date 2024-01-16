@@ -129,11 +129,13 @@ La plataforma Github premia y ayuda a los repositorios dispongan de este archivo
 
 ## Autor/es
 ---
-Marc Queral: https://github.com/MarcQueral
-Isaac Andreu: https://github.com/IsaacAndreu
-Max Segura: https://github.com/MaxSegura
+Marc Queral - (https://github.com/MarcQueral)
 
-Link del projecte: https://github.com/IsaacAndreu/MIM-Audit
+Isaac Andreu - (https://github.com/IsaacAndreu)
+
+Max Segura - (https://github.com/MaxSegura)
+
+Link del projecte: [https://github.com/IsaacAndreu/MIM-Audit]
 
 ## Información adicional
 ---
