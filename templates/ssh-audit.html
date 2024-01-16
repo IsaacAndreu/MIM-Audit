@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auditoría SSH</title>
+    <meta charset="UTF-8">
+    <!-- Enllaç als estils CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/ssh-audit_styles.css">
+    <!-- Script per mostrar/ocultar camps basat en l'opció seleccionada -->
+    <script>
+        function showFields() {
+            // Obtenir el valor de l'opció seleccionada
+            var option = document.getElementById("option").value;
+            // Mostrar o amagar els camps basats en l'opció seleccionada
+            document.getElementById("option-1").style.display = (option === "1") ? "block" : "none";
+            document.getElementById("option-2").style.display = (option === "2") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <!-- Menú de l'aplicació -->
+    <div class="menu-ssh">
+        <a href="/shodan">Shodan API</a>
+        <a href="/harvester">The Harvester</a>
+        <a href="/nmap">Escaneo (Nmap)</a>
+        <a href="/ssh">Auditoría SSH</a>
+        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+    </div>
+    <!-- Capçalera de la pàgina -->
+    <h1>Menú de l'auditoria SSH</h1>
+
+    <!-- Formulari per a l'auditoria SSH -->
+    <form method="POST" onsubmit="return validateForm()">
+        <!-- Selecció de l'opció -->
+        <label for="option">Escull una de les següents opcions:</label>
+        <select name="option" id="option" onchange="showFields()">
+            <option value="" disabled selected>Selecciona una opció</option>
+            <option value="1">Auditoria ssh sobre un equip.</option>
+            <option value="2">Auditoria ssh sobre un domini.</option>
+        </select>
+
+        <!-- Camps específics per a cada opció -->
+        <div class="option-fields" id="option-1" style="display: none;">
+            <label for="ip">Introdueix la ip a escanejar (ex: 192.168.1.0):</label>
+            <input type="text" name="ip">
+        </div>
+    
+        <div class="option-fields" id="option-2" style="display: none;">
+            <label for="domini">Introdueix el domini a escanejar (ex: www.github.com):</label>
+            <input type="text" name="domini">
+        </div>
+    
+        <br><br>
+
+        <!-- Botó de submit -->
+        <input type="submit" value="Iniciar Auditoria">
+    </form>
+
+    <!-- Mostrem els resultats si estan disponibles -->
+    {% if result_ssh1 %}
+    <h2>Resultats de la Auditoría SSH</h2>
+    <pre>{{ result_ssh1 }}</pre>
+
+    {% elif result_ssh2 %}
+    <h2>Resultats de la Auditoría SSH</h2>
+    <pre>{{ result_ssh2 }}</pre>
+    {% endif %}
+
+    <!-- Formulari addicional per a accions addicionals -->
+    <form method="POST" action="/ssh">
+        <!-- Botons per netejar resultats i enviar-los a Telegram -->
+        <input type="submit" name="clear" value="Borrar resultados">
+        <input type="submit" name="send_results" value="Enviar resultats per Telegram">
+    </form>
+
+</body>
+</html>

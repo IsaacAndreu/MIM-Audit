@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 <head>
-    <title>Shodan Menu</title>
+    <!-- Títol de la pàgina -->
+    <title>Menú de l'API de Shodan</title>
+    
+    <!-- Establir la codificació del document -->
     <meta charset="UTF-8">
+    
+    <!-- Enllaç a l'arxiu de estils CSS -->
     <link rel="stylesheet" type="text/css" href="/static/shodan_styles.css">
+    
+    <!-- Script JavaScript per a la funcionalitat de mostrar/ocultar camps -->
     <script>
         function toggleServiceNameInput() {
             var optionSelect = document.getElementById("option");
@@ -21,15 +28,19 @@
     </script>
 </head>
 <body>
+    <!-- Menú de Shodan -->
     <div class="menu-shodan">
         <a href="/shodan">Shodan API</a>
         <a href="/harvester">The Harvester</a>
-        <a href="/nmap">Escaneo (Nmap)</a>
-        <a href="/ssh">Auditoría SSH</a>
-        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+        <a href="/nmap">Escaneig (Nmap)</a>
+        <a href="/ssh">Auditoria SSH</a>
+        <a href="/enum4linux">Escaneig (Enum4linux)</a>
     </div>
+    
+    <!-- Capçalera de la pàgina -->
     <h1>Menú de l'API de Shodan</h1>
 
+    <!-- Formulari per a l'API de Shodan -->
     <form method="POST">
         <label for="domain">Insereix un objectiu en format URL</label>
         <input type="text" name="domain" required>
@@ -45,14 +56,17 @@
         
         <br><br>
         
+        <!-- Camps específics per a l'opció 4 (inicialment ocults) -->
         <p id="service_name_label" style="display:none;">Insereix el nom del servei que vols escanejar:</p>
         <input type="text" name="service_name" id="service_name" style="display:none;">
         <br><br>
 
-        <input type="submit" value="Submit">
+        <!-- Botó de presentació del formulari -->
+        <input type="submit" value="Enviar">
     </form>
 
-    <h2>Results:</h2>
+    <!-- Resultats de l'API de Shodan -->
+    <h2>Resultats:</h2>
     <ul>
         {% for result in results %}
             <li>
@@ -65,8 +79,9 @@
         {% endfor %}
     </ul>
 
+    <!-- Formulari per a accions addicionals -->
     <form method="POST" action="/shodan">
-        <input type="submit" name="clear" value="Borrar resultados">
+        <input type="submit" name="clear" value="Borrar resultats">
         <input type="submit" name="send_results" value="Enviar resultats per Telegram">
     </form>
     

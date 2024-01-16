@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-enum4linux {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.menu-enum4linux a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px; 
+}
+
+.menu-enum4linux a::before {
+    content: "• ";
+}
+
+form {
+    max-width: 500px;
+    margin: 20px auto 0 auto; 
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 0; 
+    margin: 0; 
+}
+
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    padding-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h2 {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+form[action="/enum4linux"] {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form[action="telegram"] {
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+}

@@ -10,11 +10,11 @@
 
 - [Descripció i context](#descripción-y-contexto)
 - [Fet amb](#fet-amb)
-- [Guía de usuari](#guía-de-usuario)
+- [Prerequeriments](#prerequeriments)
 - [Guía de instalació](#guía-de-instalación)
+- [Guía de usuari](#guía-de-usuario)
 - [Código de conducta](#código-de-conducta)
 - [Autor/es](#autores)
-- [Información adicional](#información-adicional)
 - [Licencia](#licencia)
 - [Limitación de responsabilidades - Solo BID](#limitación-de-responsabilidades)
 
@@ -42,10 +42,7 @@ Funcionalitats principals
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Guía de usuario
----
-
-### Prerequeriments
+## Prerequeriments
 ---
 * Instal·lació de python i altres requeriments.
 
@@ -67,6 +64,44 @@ Funcionalitats principals
     '''sh
     pip install -r requeriments.txt
     '''
+
+## Guia d'usuari
+---
+Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
+
+### Menú principal
+En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com Shodan API, The Harvester, Escaneo(Nmap), Auditoria SSH i Escaneo (Enum4Linux)
+<p align="left"><img src="images/MenuPrincipal.png></p> 
+
+### Instruccions generals
+
+Cada eina té una secció on podeu introduir la IP o URL que volveu analitzar. Algunes eines tenen una barra de selecció perquè pugueu triar entre diferents funcions. Assegureu-vos de proporcionar la informació correcta abans de procedir.
+
+### Shodan API
+Comencem amb Shodan API. Introduïu la IP o URL a la barra corresponent. Podeu triar diferents opcions de cerca mitjançant la barra de selecció. Un cop fet, feu clic a "Enviar" i espereu els resultats a la part inferior. 
+<p align="left"><img src="images/ShodanAPI.png></p> 
+
+### The Harvester
+Amb The Harvester, introduïu la IP o URL desitjada i seleccioneu les opcions necessàries. Cliqueu "Executar The Harvester" per iniciar l'eina. Els resultats hi tarden uns 3 o 5 mins en mostrarse a la part inferior de la pàgina.
+<p align="left"><img src="images/TheHarvester.png></p> 
+
+### Escaneig (Nmap)
+Amb Nmap primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o nom del host que voleu escanejar i trieu les opcions de l'escaneig. Cliqueu a "Enviar" per iniciar el procés. Els resultats es mostraran sota la barra d'opcions
+<p align="left"><img src="images/Nmap.png></p> 
+
+### Auditoria SSH
+En aquesta secció, primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o host corresponen a la màquina amb la qual voleu realitzar l'auditoria SSH. Cliqueu a "Iniciar Auditoria". Els resultats apareixeran a sota.
+<p align="left"><img src="images/MenuSSH.png></p> 
+
+### Escaneo (Enum4Linux)
+Per a l'escaneig amb Enum4Linux, introduïu la IP i cliqueu a "Iniciar Escaneig". Els resultats estaran disponibles a la part inferior.
+<p align="left"><img src="images/Enum4Linux.png></p> 
+
+### Resultats
+Després de completar cada anàlisi, veureu els resultats a la part inferior de la pàgina. Teniu un botó per esborrar els resultats si cal, i també un botó per enviar-los via Telegram.
+
+### Suport tècnic
+No dubteu a explorar les diferents eines i funcions per millorar la vostra auditoria. Si teniu algun dubte, consulteu la nostra secció de preguntes freqüents o poseu-vos en contacte amb el nostre suport tècnic. Gràcies per confiar en la nostra plataforma.
 
 
 ## Código de conducta 

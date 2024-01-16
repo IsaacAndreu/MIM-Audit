@@ -1,71 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
+    <!-- Establir la codificació del document -->
     <meta charset="UTF-8">
+    
+    <!-- Garantir la compatibilitat amb Internet Explorer -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Establir la vista inicial i l'escalat segons el dispositiu -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Títol de la pàgina -->
     <title>Harvester</title>
+    
+    <!-- Enllaç a l'arxiu de estils CSS -->
     <link rel="stylesheet" type="text/css" href="/static/harvester_styles.css">
 </head>
 <body>
+    <!-- Menú principal -->
     <div class="menu-main">
         <a href="/shodan">Shodan API</a>
         <a href="/harvester">The Harvester</a>
-        <a href="/nmap">Escaneo (Nmap)</a>
-        <a href="/ssh">Auditoría SSH</a>
-        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+        <a href="/nmap">Escaneig (Nmap)</a>
+        <a href="/ssh">Auditoria SSH</a>
+        <a href="/enum4linux">Escaneig (Enum4linux)</a>
     </div>
+    
+    <!-- Capçalera de la pàgina -->
     <h1>Menú de The Harvester</h1>
 
+    <!-- Formulari d'entrada per a The Harvester -->
     <form method="POST" id="harvester-form">
-        <label for="domain">Introduce el objetivo (dominio o dirección IP):</label>
+        <label for="domain">Introdueix l'objectiu (domini o adreça IP):</label>
         <input type="text" name="domain" required>
         <br><br>
         
-        <input type="submit" value="Ejecutar The Harvester">
+        <input type="submit" value="Executar The Harvester">
     </form>
 
-    <!-- Agrega un contenedor para el mensaje de procesamiento -->
+    <!-- Contenidor per al missatge de processament -->
     <div id="processing-message" style="display: none;">
-        <h2>Procesando resultados...</h2>
+        <h2>Processant resultats...</h2>
     </div>
 
-    <h2>Resultados del Harvester:</h2>
+    <!-- Capçalera per als resultats de The Harvester -->
+    <h2>Resultats del Harvester:</h2>
     <div id="results" style="display: block;"> 
         {% if results %}
             {% for result in results %}
+                <!-- Div per a cada resultat -->
                 <div class="result">
                     <pre>{{ result['results'] }}</pre>
                 </div>
             {% endfor %}
         {% else %}
-            <p>No hay resultados disponibles.</p>
+            <!-- Missatge en cas que no hi hagi resultats -->
+            <p>No hi ha resultats disponibles.</p>
         {% endif %}
     </div>
     
+    <!-- Formulari per a accions addicionals -->
     <form method="POST" action="/harvester">
-        <input type="submit" name="clear" value="Borrar resultados">
-        <input type="submit" name="send_results" value="Enviar resultados por Telegram">
+        <input type="submit" name="clear" value="Borrar resultats">
+        <input type="submit" name="send_results" value="Enviar resultats per Telegram">
     </form>
 
-    <!-- Agrega el código JavaScript -->
+    <!-- Codi JavaScript per a la interactivitat -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const processingMessage = document.getElementById('processing-message');
             const resultsContainer = document.getElementById('results');
             const harvesterForm = document.getElementById('harvester-form');
 
+            // Mostrar el missatge de processament i ocultar els resultats quan s'envia el formulari
             harvesterForm.addEventListener('submit', function () {
                 processingMessage.style.display = 'block';
                 resultsContainer.style.display = 'none';
             });
 
-            // Opcional: Puedes ocultar el mensaje de procesamiento después de un tiempo simulando la espera
+            // Opcional: Ocultar el missatge de processament després d'un temps (simulació d'espera)
             harvesterForm.addEventListener('submit', function () {
                 setTimeout(function () {
                     processingMessage.style.display = 'none';
                     resultsContainer.style.display = 'block';
-                }, 3000); // 3000 milisegundos (3 segundos) - ajusta según sea necesario
+                }, 3000); // 3000 milisegons (3 segons) - ajusta segons calgui
             });
         });
     </script>

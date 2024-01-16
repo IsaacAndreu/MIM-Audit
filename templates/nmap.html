@@ -1,21 +1,29 @@
-Queralet, [15/1/24 20:59]
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 <head>
-    <title>Nmap Menu</title>
+    <!-- Títol de la pàgina -->
+    <title>Menú Nmap</title>
+    
+    <!-- Establir la codificació del document -->
     <meta charset="UTF-8">
+    
+    <!-- Enllaç a l'arxiu de estils CSS -->
     <link rel="stylesheet" type="text/css" href="/static/nmap_styles.css">
 </head>
 <body>
+    <!-- Menú de Nmap -->
     <div class="menu-nmap">
         <a href="/shodan">Shodan API</a>
         <a href="/harvester">The Harvester</a>
-        <a href="/nmap">Escaneo (Nmap)</a>
-        <a href="/ssh">Auditoría SSH</a>
-        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+        <a href="/nmap">Escaneig (Nmap)</a>
+        <a href="/ssh">Auditoria SSH</a>
+        <a href="/enum4linux">Escaneig (Enum4linux)</a>
     </div>
+    
+    <!-- Capçalera de la pàgina -->
     <h1>Menú de l'escaneig Nmap</h1>
 
+    <!-- Formulari per a l'escaneig Nmap -->
     <form method="POST">
         <label for="option">Escull una de les següents opcions:</label>
         <select name="option" id="option">
@@ -25,6 +33,7 @@ Queralet, [15/1/24 20:59]
             <option value="4">Llistat de vulnerabilitats d'un, un rang o tots els serveis.</option>
         </select>
 
+        <!-- Camps específics per a cada opció (inicialment ocults) -->
         <div class="option-fields" id="option-1" style="display: none;">
             <label for="xarxa">Introdueix la xarxa a escanejar (ex: 192.168.1.0/24):</label>
             <input type="text" name="xarxa">
@@ -53,9 +62,11 @@ Queralet, [15/1/24 20:59]
 
         <br><br>
 
-        <input type="submit" value="Submit">
+        <!-- Botó de presentació del formulari -->
+        <input type="submit" value="Enviar">
     </form>
 
+    <!-- Resultats per a cada opció -->
     {% if result_nmap1 %}
         <h2>Hosts de xarxa:</h2>
         <p>{{ result_nmap1['message'] }}</p>
@@ -98,18 +109,19 @@ Queralet, [15/1/24 20:59]
                 <li>
                     IP: {{ vulnerability['ip_address'] }}, Port: {{ vulnerability['port'] }},
                     Protocol: {{ vulnerability['protocol'] }}, Service: {{ vulnerability['service'] }},
-                    Vulnerability: {{ vulnerability['vulnerability'] }}
+                    Vulnerabilitat: {{ vulnerability['vulnerability'] }}
                 </li>
             {% endfor %}
         </ul>
     {% endif %}
 
-Queralet, [15/1/24 20:59]
-<form method="POST" action="/nmap">
-        <input type="submit" name="clear" value="Borrar resultados">
+    <!-- Formulari per a accions addicionals -->
+    <form method="POST" action="/nmap">
+        <input type="submit" name="clear" value="Borrar resultats">
         <input type="submit" name="send_results" value="Enviar resultats per Telegram">
     </form>
     
+    <!-- Codi JavaScript per a la interactivitat -->
     <script>
         document.getElementById('option').addEventListener('change', function () {
             var fields = document.getElementsByClassName('option-fields');

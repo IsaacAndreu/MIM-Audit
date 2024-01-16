@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enum4linux Menu</title>
+    <!-- Enllaç als estils CSS específics d'Enum4linux -->
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/enum4linux_styles.css">
+</head>
+<body>
+    <!-- Menú de l'aplicació Enum4linux -->
+    <div class="menu-enum4linux">
+        <a href="/shodan">Shodan API</a>
+        <a href="/harvester">The Harvester</a>
+        <a href="/nmap">Escaneo (Nmap)</a>
+        <a href="/ssh">Auditoría SSH</a>
+        <a href="/enum4linux">Escaneo (Enum4linux)</a>
+    </div>
+    <!-- Capçalera del menú d'Enum4linux -->
+    <h1>Menú de Enum4linux</h1>
+
+    <!-- Formulari per a l'escaneig d'Enum4linux -->
+    <form method="POST">
+        <!-- Camp específic per a l'adreça IP -->
+        <div class="option-fields" id="option-1">
+            <label for="ip">Introdueix l'adreça IP a escanejar (ex: 192.168.1.1):</label>
+            <input type="text" name="ip">
+        </div>
+
+        <br><br>
+
+        <!-- Botó de submit per iniciar l'escaneig -->
+        <input type="submit" value="Iniciar Escaneig">
+    </form>
+
+    <!-- Mostrem els resultats si estan disponibles -->
+    {% if result_enum4linux1 %}
+        <h2>Resultats de l'escaneig Enum4linux</h2>
+        <p>{{ result_enum4linux1['message'] }}</p>
+        <pre>{{ result_enum4linux1['output'] }}</pre>
+    {% endif %}
+
+    <!-- Formulari addicional per a accions addicionals -->
+    <form method="POST" action="/enum4linux">
+        <!-- Botons per netejar resultats i enviar-los a Telegram -->
+        <input type="submit" name="clear" value="Borrar resultats">
+        <input type="submit" name="send_results" value="Enviar resultats a Telegram">
+    </form>
+
+</body>
+</html>
