@@ -1,7 +1,3 @@
-
-
-*Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [code.iadb.org](https://code.iadb.org)*
-
 <h1 align="center">MIM Audit</h1>
 <p align="center"><img src="images/logo.png"/></p> 
 
@@ -16,7 +12,6 @@
 - [Codi de conducta](#codi-de-conducta)
 - [Autor/es](#autores)
 - [Licencia](#licencia)
-- [Limitación de responsabilidades - Solo BID](#limitación-de-responsabilidades)
 
 
 ## Descripció i context
@@ -124,6 +119,7 @@ No dubteu a explorar les diferents eines i funcions per millorar la vostra audit
 ## Codi de conducta
 ---
 Podeu trobar el codi de conducta al següent link: https://github.com/IsaacAndreu/MIM-Audit?tab=coc-ov-file
+
 ## Autor/es
 ---
 Marc Queral - (https://github.com/MarcQueral)
@@ -133,10 +129,6 @@ Isaac Andreu - (https://github.com/IsaacAndreu)
 Max Segura - (https://github.com/MaxSegura)
 
 Link del projecte: [https://github.com/IsaacAndreu/MIM-Audit]
-
-## Información adicional
----
-Esta es la sección que permite agregar más información de contexto al proyecto como alguna web de relevancia, proyectos similares o que hayan usado la misma tecnología.
 
 ## Licencia 
 ---
@@ -149,11 +141,3 @@ Si desconoces qué tipos de licencias existen y cuál es la mejor para cada caso
 
 Si la herramienta que estás publicando con la iniciativa Código para el Desarrollo ha sido financiada por el BID, te invitamos a revisar la [licencia oficial del banco para publicar software](https://github.com/EL-BID/Plantilla-de-repositorio/blob/master/LICENSE.md)
 
-## Limitación de responsabilidades
-Disclaimer: Esta sección es solo para herramientas financiadas por el BID.
-
-El BID no será responsable, bajo circunstancia alguna, de daño ni indemnización, moral o patrimonial; directo o indirecto; accesorio o especial; o por vía de consecuencia, previsto o imprevisto, que pudiese surgir:
-
-i. Bajo cualquier teoría de responsabilidad, ya sea por contrato, infracción de derechos de propiedad intelectual, negligencia o bajo cualquier otra teoría; y/o
-
-ii. A raíz del uso de la Herramienta Digital, incluyendo, pero sin limitación de potenciales defectos en la Herramienta Digital, o la pérdida o inexactitud de los datos de cualquier tipo. Lo anterior incluye los gastos o daños asociados a fallas de comunicación y/o fallas de funcionamiento de computadoras, vinculados con la utilización de la Herramienta Digital.
