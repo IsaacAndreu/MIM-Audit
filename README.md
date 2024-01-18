@@ -13,7 +13,7 @@
 - [Prerequeriments](#prerequeriments)
 - [Guía de instalació](#guía-de-instalació)
 - [Guía de usuari](#guía-de-usuari)
-- [Código de conducta](#código-de-conducta)
+- [Codi de conducta](#codi-de-conducta)
 - [Autor/es](#autores)
 - [Licencia](#licencia)
 - [Limitación de responsabilidades - Solo BID](#limitación-de-responsabilidades)
@@ -121,12 +121,9 @@ Després de completar cada anàlisi, veureu els resultats a la part inferior de 
 No dubteu a explorar les diferents eines i funcions per millorar la vostra auditoria. Si teniu algun dubte, consulteu la nostra secció de preguntes freqüents o poseu-vos en contacte amb el nostre suport tècnic. Gràcies per confiar en la nostra plataforma.
 
 
-## Código de conducta 
+## Codi de conducta
 ---
-El código de conducta establece las normas sociales, reglas y responsabilidades que los individuos y organizaciones deben seguir al interactuar de alguna manera con la herramienta digital o su comunidad. Es una buena práctica para crear un ambiente de respeto e inclusión en las contribuciones al proyecto. 
-
-La plataforma Github premia y ayuda a los repositorios dispongan de este archivo. Al crear CODE_OF_CONDUCT.md puedes empezar desde una plantilla sugerida por ellos. Puedes leer más sobre cómo crear un archivo de Código de Conducta (aquí)[https://help.github.com/articles/adding-a-code-of-conduct-to-your-project/]
-
+Podeu trobar el codi de conducta al següent link: https://github.com/IsaacAndreu/MIM-Audit?tab=coc-ov-file
 ## Autor/es
 ---
 Marc Queral - (https://github.com/MarcQueral)
