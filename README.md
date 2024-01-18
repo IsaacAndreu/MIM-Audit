@@ -133,11 +133,24 @@ Link del projecte: [https://github.com/IsaacAndreu/MIM-Audit]
 ## Licencia 
 ---
 
-La licencia especifica los permisos y las condiciones de uso que el desarrollador otorga a otros desarrolladores que usen y/o modifiquen la herramienta digital.
+MIT License
 
-Incluye en esta sección una nota con el tipo de licencia otorgado a esta herramienta digital. El texto de la licencia debe estar incluído en un archivo *LICENSE.md* o *LICENSE.txt* en la raíz del repositorio.
+Derechos de autor (c) 2024 MIM Audit
 
-Si desconoces qué tipos de licencias existen y cuál es la mejor para cada caso, te recomendamos visitar la página https://choosealicense.com/.
+Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
+de este software y de los archivos de documentación asociados (el "Software"), para tratar
+en el Software sin restricciones, incluidos, entre otros, los derechos
+de usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y / o vender
+copias del Software, y permitir a las personas a las que se les proporcione el Software
+hacerlo, sujeto a las siguientes condiciones:
 
-Si la herramienta que estás publicando con la iniciativa Código para el Desarrollo ha sido financiada por el BID, te invitamos a revisar la [licencia oficial del banco para publicar software](https://github.com/EL-BID/Plantilla-de-repositorio/blob/master/LICENSE.md)
+El aviso de copyright anterior y este aviso de permiso se incluirán en todos
+copias o partes sustanciales del Software.
 
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
+IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A LAS GARANTÍAS DE COMERCIABILIDAD,
+IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS
+AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE CUALQUIER RECLAMO,
+DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE OTRA MANERA,
+PROVENIENTE DE, FUERA DE O EN RELACIÓN CON EL SOFTWARE O EL USO U OTROS
+OPERACIONES EN EL SOFTWARE.
