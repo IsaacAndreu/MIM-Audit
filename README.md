@@ -143,9 +143,6 @@ Per a l'escaneig amb Enum4Linux, introduïu la IP i cliqueu a "Iniciar Escaneig"
   <img src="images/Enum4Linux.png" alt="enum4linux" width="40%">
 </p>
 
-### Resultats
-Després de completar cada anàlisi, veureu els resultats a la part inferior de la pàgina. Teniu un botó per esborrar els resultats si cal, i també un botó per enviar-los via Telegram.
-
 ### Suport tècnic
 No dubteu a explorar les diferents eines i funcions per millorar la vostra auditoria. Si teniu algun dubte, consulteu la nostra secció de preguntes freqüents o poseu-vos en contacte amb el nostre suport tècnic. Gràcies per confiar en la nostra plataforma.
 
