@@ -1,7 +1,7 @@
 <h1 align="center">MIM Audit</h1>
 <p align="center"><img src="images/logo.png"/></p> 
 
-## Tabla de contenidos:
+## Taula de continguts:
 ---
 
 - [Descripció i context](#descripció-i-context)
