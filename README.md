@@ -10,7 +10,7 @@
 - [Guía de instalació](#guía-de-instalació)
 - [Guía de usuari](#guía-de-usuari)
 - [Codi de conducta](#codi-de-conducta)
-- [Autor/es](#autores)
+- [Autor/s](#autors)
 - [Licencia](#licencia)
 
 
@@ -118,7 +118,7 @@ No dubteu a explorar les diferents eines i funcions per millorar la vostra audit
 ---
 Podeu trobar el codi de conducta al següent link: https://github.com/IsaacAndreu/MIM-Audit?tab=coc-ov-file
 
-## Autor/es
+## Autor/s
 ---
 Marc Queral - (https://github.com/MarcQueral)
 
