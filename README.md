@@ -133,22 +133,22 @@ Link del projecte: [https://github.com/IsaacAndreu/MIM-Audit]
 
 MIT License
 
-Derechos de autor (c) 2024 MIM Audit
+Drets d'autor (c) 2024 MIM Audit
 
-Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
-de este software y de los archivos de documentación asociados (el "Software"), para tratar
-en el Software sin restricciones, incluidos, entre otros, los derechos
-de usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y / o vender
-copias del Software, y permitir a las personas a las que se les proporcione el Software
-hacerlo, sujeto a las siguientes condiciones:
+Es concedeix permís, de forma gratuïta, a qualsevol persona que n'obtingui una còpia
+d'aquest programari i dels fitxers de documentació associats (el "Software"), per tractar
+al Programari sense restriccions, inclosos, entre altres, els drets
+d'usar, copiar, modificar, fusionar, publicar, distribuir, subllicenciar i/o vendre
+còpies del Programari, i permetre a les persones a les quals se'ls proporcioni el Programari
+fer-ho, subjecte a les següents condicions:
 
-El aviso de copyright anterior y este aviso de permiso se incluirán en todos
-copias o partes sustanciales del Software.
+L'avís de copyright anterior i aquest avís de permís s'inclouran a tots
+còpies o parts substancials del Programari.
 
-EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
-IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A LAS GARANTÍAS DE COMERCIABILIDAD,
-IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS
-AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE CUALQUIER RECLAMO,
-DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE OTRA MANERA,
-PROVENIENTE DE, FUERA DE O EN RELACIÓN CON EL SOFTWARE O EL USO U OTROS
-OPERACIONES EN EL SOFTWARE.
+EL PROGRAMARI ES PROPORCIONA "TAL QUAL", SENSE GARANTIA DE CAP TIPUS, EXPRESSA O
+IMPLÍCITA, INCLÒS PERÒ NO LIMITAT A LES GARANTIES DE COMERCIABILITAT,
+IDONEÏTAT PER A UN PROPÒSIT PARTICULAR I NO INFRACCIÓ. EN CAP CAS ELS
+AUTORS O TITULARS DELS DRETS D'AUTOR SERAN RESPONSABLES DE QUALSEVOL RECLAM,
+DANY O UNA ALTRA RESPONSABILITAT, JA SIGUI EN UNA ACCIÓ DE CONTRACTE, AGRAVI O D'ALTRA MANERA,
+PROVINENT DE, FORA D'O EN RELACIÓ AMB EL PROGRAMARI O L'ÚS O ALTRES
+OPERACIONS AL PROGRAMARI.
