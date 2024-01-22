@@ -8,7 +8,7 @@
 - [Fet amb](#fet-amb)
 - [Prerequeriments](#prerequeriments)
 - [Guía de instalació](#guía-de-instalació)
-- [Guía de usuari](#guía-de-usuari)
+- [Guía d'usuari](#guía-d'usuari)
 - [Codi de conducta](#codi-de-conducta)
 - [Autor/s](#autors)
 - [Licencia](#licencia)
@@ -22,7 +22,7 @@ Som un grup d'estudiants del IES Ebre. El nostre projecte (MIM Audit) es una ein
 Funcionalitats principals
 * Shodan API
 * The Harvester
-* Escaneo (Nmap)
+* Escaneig (Nmap)
 * Auditoria SSH
 * Enum4linux
 * Enviar els resultats a Telegram
@@ -63,7 +63,9 @@ Funcionalitats principals
 Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
 
 ### Menú principal
-En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com Shodan API, The Harvester, Escaneo(Nmap), Auditoria SSH i Escaneo (Enum4Linux)
+Aquesta pantalla és la pestanya principal que s'obri quan ecexutem el codi. En aquesta podem trobar un menú amb les diverses eines d'auditoria com Shodan API, The Harvester, Escaneig (Nmap), Auditoria SSH i Escaneig (Enum4Linux).
+
+Quan es prem el botó corresponent es realitza una redirecció a l'eina d'auditoria amb la qual es vol treballar.
 
 <p align="center">
   <img src="images/MenuPrincipal.png" alt="menuprincipal" width="40%">
@@ -73,24 +75,58 @@ En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com
 Cada eina té una secció on podeu introduir la IP o URL que volveu analitzar. Algunes eines tenen una barra de selecció perquè pugueu triar entre diferents funcions. Assegureu-vos de proporcionar la informació correcta abans de procedir.
 
 ### Shodan API
-Comencem amb Shodan API. Introduïu la IP o URL a la barra corresponent. Podeu triar diferents opcions de cerca mitjançant la barra de selecció. Un cop fet, feu clic a "Enviar" i espereu els resultats a la part inferior. 
+Comencem amb Shodan API. 
+
+Aquesta és a la pàgina que es fa la redirecció quan es prem el botó de Shodan API al menu principal de la pàgina web. 
 
 <p align="center">
   <img src="images/ShodanAPI.png" alt="shodanapi" width="40%">
 </p>
 
+Dins d'aquesta pots fer diferentes funcions ja que quan obris el desplegable pots escollir quin escaneig realitzar amb Shodan. Els anàlisis sobre una IP o un domini amb Shodan poden ser 4: informació de l'API de Shodan, noms de domini i ports oberts, servei relacionat a cada port i escaneig de IP i ports sobre un servei.
+
+<p align="center">
+  <img src="images/DesplegableShodanAPI.png" alt="desplegable1" width="40%">
+</p>
+
+Un exemple seria el que mostrem a la imatge de sota. Com es pot comprovar introduïm el domini www.facebook.com i com a resultat ens mostra informació rellevant sobre aquest.
+
+<p align="center">
+  <img src="images/ResultatShodan.png" alt="resultat1" width="40%">
+</p>
+
 ### The Harvester
-Amb The Harvester, introduïu la IP o URL desitjada i seleccioneu les opcions necessàries. Cliqueu "Executar The Harvester" per iniciar l'eina. Els resultats hi tarden uns 3 o 5 mins en mostrarse a la part inferior de la pàgina.
+Amb The Harvester, d'entrada ens demana introduïr una IP o URL objectiu per realitzar l'auditoria. Com a resultat ens mostra un escaneig bastant extens amb molta informació interessant sobre el domini introduit.
 
 <p align="center">
   <img src="images/TheHarvester.png" alt="TheHarvester" width="40%">
 </p>
 
+Com aquesta eina es tant completa, tarda uns 3min en realitzar l'escaneig però l'espera val la pena!!
+
+A continuació es pot veure un simple exemple sobre la utilitat de The Harvester sobre el domini www.iesebre.com
+
+<p align="center">
+  <img src="images/ResultatTheHarvester.png" alt="resultat2" width="40%">
+</p>
+
 ### Escaneig (Nmap)
-Amb Nmap primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o nom del host que voleu escanejar i trieu les opcions de l'escaneig. Cliqueu a "Enviar" per iniciar el procés. Els resultats es mostraran sota la barra d'opcions
+Amb Nmap es poden escollir fins a 4 funcions diferents. Aquestes són bastant útils per fer una auditoria ràpida a un equip o domini en concret. 
 
 <p align="center">
   <img src="images/Nmap.png" alt="nmap" width="40%">
+</p>
+
+Per fer la selecció de l'escaneig que es vol dur a terme, hi ha un desplegable el qual explica detalladament cada funció. Aquesta eina ens permet fer una cerca de hosts dins d'una xarxa, escaneig de ports oberts, serveis i versions de ports i també es pot extreure un llistat de vulnerabilitats.
+
+<p align="center">
+  <img src="images/DesplegableNmap.png" alt="nmap" width="40%">
+</p>
+
+Com us mostrem a la imatge de sota, es pot apreciar un escaneig sobre un equip de serveis i versions dins d'un rang de ports.
+
+<p align="center">
+  <img src="images/ResultatNmap.png" alt="nmap" width="40%">
 </p>
 
 ### Auditoria SSH
