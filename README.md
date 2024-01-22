@@ -60,7 +60,7 @@ Funcionalitats principals
     pip install -r requeriments.txt
     ```
 
-## Guía de usuari
+## Guía d'usuari
 ---
 Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
 
