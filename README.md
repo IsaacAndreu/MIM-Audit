@@ -1,33 +1,28 @@
-
-
-*Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [code.iadb.org](https://code.iadb.org)*
-
 <h1 align="center">MIM Audit</h1>
 <p align="center"><img src="images/logo.png"/></p> 
 
-## Tabla de contenidos:
+## Taula de continguts:
 ---
 
-- [Descripció i context](#descripción-y-contexto)
+- [Descripció i context](#descripció-i-context)
 - [Fet amb](#fet-amb)
 - [Prerequeriments](#prerequeriments)
-- [Guía de instalació](#guía-de-instalación)
-- [Guía de usuari](#guía-de-usuario)
-- [Código de conducta](#código-de-conducta)
-- [Autor/es](#autores)
+- [Guía de instalació](#guía-de-instalació)
+- [Guía d'usuari](#guía-d'usuari)
+- [Codi de conducta](#codi-de-conducta)
+- [Autor/s](#autors)
 - [Licencia](#licencia)
-- [Limitación de responsabilidades - Solo BID](#limitación-de-responsabilidades)
 
 
 ## Descripció i context
 ---
 
-Som un grup d'estudiants del IES Ebre. El nostre projecte (MIM Audit) es una eina que pot realitzar una auditoría a un host o xarxa. 
+Som un grup d'estudiants de l'institut IES de l'Ebre. El nostre projecte (MIM Audit) es una eina que pot realitzar una auditoría a un host o xarxa amb l'utilitat de diferents funcions. 
 
 Funcionalitats principals
 * Shodan API
 * The Harvester
-* Escaneo (Nmap)
+* Escaneig (Nmap)
 * Auditoria SSH
 * Enum4linux
 * Enviar els resultats a Telegram
@@ -40,100 +35,171 @@ Funcionalitats principals
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" width="200">
 </p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Prerequeriments
 ---
 * Instal·lació de python i altres requeriments.
 
-    '''sh
+    ```
     pip install -r requirements.txt
-    '''
+    ```
  	
-## Guía de instalación
+## Guía d'instal·lació
 ---
 1. Clona aquest repositori a la teva màquina local:
-    '''sh
+    ```
     git clone https://github.com/IsaacAndreu/MIM-Audit
-    '''
+    ```
 2. Entra al directori del projecte:
-    '''sh
+    ```
     cd MIM-Audit
-    '''
+    ```
 3. Instal·la les dependencies necessaries:
-    '''sh
+    ```
     pip install -r requeriments.txt
-    '''
+    ```
 
-## Guia d'usuari
+## Guía d'usuari
 ---
-Benvinguts a la secció d'ús de la nostra eina de auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
+Benvinguts a la secció d'ús de la nostra eina d'auditoria. Aquí us guiarem a través dels passos bàsics per utilitzar les diferents eines disponibles a la nostra aplicació.
 
 ### Menú principal
-En aquesta pantalla hi trobareu un menú amb les diverses eines de auditoria com Shodan API, The Harvester, Escaneo(Nmap), Auditoria SSH i Escaneo (Enum4Linux)
-<p align="left"><img src="images/MenuPrincipal.png></p> 
+Aquesta pantalla és la pestanya principal que s'obri quan ecexutem el codi. En aquesta podem trobar un menú amb les diverses eines d'auditoria com Shodan API, The Harvester, Escaneig (Nmap), Auditoria SSH i Escaneig (Enum4Linux).
+
+Quan es prem el botó corresponent es realitza una redirecció a l'eina d'auditoria amb la qual es vol treballar.
+
+<p align="center">
+  <img src="images/MenuPrincipal.png" alt="menuprincipal" width="40%">
+</p>
 
 ### Instruccions generals
-
 Cada eina té una secció on podeu introduir la IP o URL que volveu analitzar. Algunes eines tenen una barra de selecció perquè pugueu triar entre diferents funcions. Assegureu-vos de proporcionar la informació correcta abans de procedir.
 
 ### Shodan API
-Comencem amb Shodan API. Introduïu la IP o URL a la barra corresponent. Podeu triar diferents opcions de cerca mitjançant la barra de selecció. Un cop fet, feu clic a "Enviar" i espereu els resultats a la part inferior. 
-<p align="left"><img src="images/ShodanAPI.png></p> 
+Comencem amb Shodan API. 
+
+Aquesta és a la pàgina que es fa la redirecció quan es prem el botó de Shodan API al menu principal de la pàgina web. 
+
+<p align="center">
+  <img src="images/ShodanAPI.png" alt="shodanapi" width="40%">
+</p>
+
+Dins d'aquesta pots fer diferentes funcions ja que quan obris el desplegable pots escollir quin escaneig realitzar amb Shodan. Els anàlisis sobre una IP o un domini amb Shodan poden ser 4: informació de l'API de Shodan, noms de domini i ports oberts, servei relacionat a cada port i escaneig de IP i ports sobre un servei.
+
+<p align="center">
+  <img src="images/DesplegableShodanAPI.png" alt="desplegable1" width="40%">
+</p>
+
+Un exemple seria el que mostrem a la imatge de sota. Com es pot comprovar introduïm el domini www.facebook.com i com a resultat ens mostra informació rellevant sobre aquest.
+
+<p align="center">
+  <img src="images/ResultatShodan.png" alt="resultat1" width="40%">
+</p>
 
 ### The Harvester
-Amb The Harvester, introduïu la IP o URL desitjada i seleccioneu les opcions necessàries. Cliqueu "Executar The Harvester" per iniciar l'eina. Els resultats hi tarden uns 3 o 5 mins en mostrarse a la part inferior de la pàgina.
-<p align="left"><img src="images/TheHarvester.png></p> 
+Amb The Harvester, d'entrada ens demana introduïr una IP o URL objectiu per realitzar l'auditoria. Com a resultat ens mostra un escaneig bastant extens amb molta informació interessant sobre el domini introduit.
+
+<p align="center">
+  <img src="images/TheHarvester.png" alt="TheHarvester" width="40%">
+</p>
+
+Com aquesta eina es tant completa, tarda uns 3min en realitzar l'escaneig però l'espera val la pena!!
+
+A continuació es pot veure un simple exemple sobre la utilitat de The Harvester sobre el domini www.iesebre.com
+
+<p align="center">
+  <img src="images/ResultatTheHarvester.png" alt="resultat2" width="40%">
+</p>
 
 ### Escaneig (Nmap)
-Amb Nmap primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o nom del host que voleu escanejar i trieu les opcions de l'escaneig. Cliqueu a "Enviar" per iniciar el procés. Els resultats es mostraran sota la barra d'opcions
-<p align="left"><img src="images/Nmap.png></p> 
+Amb Nmap es poden escollir fins a 4 funcions diferents. Aquestes són bastant útils per fer una auditoria ràpida a un equip o domini en concret. 
+
+<p align="center">
+  <img src="images/Nmap.png" alt="nmap" width="40%">
+</p>
+
+Per fer la selecció de l'escaneig que es vol dur a terme, hi ha un desplegable el qual explica detalladament cada funció. Aquesta eina ens permet fer una cerca de hosts dins d'una xarxa, escaneig de ports oberts, serveis i versions de ports i també es pot extreure un llistat de vulnerabilitats.
+
+<p align="center">
+  <img src="images/DesplegableNmap.png" alt="desplegablenmap" width="40%">
+</p>
+
+Com us mostrem a la imatge de sota, es pot apreciar un escaneig sobre un equip de serveis i versions dins d'un rang de ports.
+
+<p align="center">
+  <img src="images/ResultatNmap.png" alt="resultat3" width="40%">
+</p>
 
 ### Auditoria SSH
-En aquesta secció, primer elegiu una de les opcions, una vegada fet aixo introduïu la IP o host corresponen a la màquina amb la qual voleu realitzar l'auditoria SSH. Cliqueu a "Iniciar Auditoria". Els resultats apareixeran a sota.
-<p align="left"><img src="images/MenuSSH.png></p> 
+En aquesta secció, es pot fer una auditoria SSH la qual mostra com a resultat la seguretat de la configuració del servidor SSH que s'ha escanejat.
 
-### Escaneo (Enum4Linux)
-Per a l'escaneig amb Enum4Linux, introduïu la IP i cliqueu a "Iniciar Escaneig". Els resultats estaran disponibles a la part inferior.
-<p align="left"><img src="images/Enum4Linux.png></p> 
+<p align="center">
+  <img src="images/MenuSSH.png" alt="menussh" width="40%">
+</p>
 
-### Resultats
-Després de completar cada anàlisi, veureu els resultats a la part inferior de la pàgina. Teniu un botó per esborrar els resultats si cal, i també un botó per enviar-los via Telegram.
+Dins de la seva pàgina inicial, es pot veure un desplegable el qual permet fer una tria de dos opcions: auditoria SSH sobre un equip i també sobre un domini.
+
+<p align="center">
+  <img src="images/DesplegableSSH.png" alt="desplegablessh" width="40%">
+</p>
+
+Per a que veigueu el seu ús, aqui us mostrem una auditoria sobre el domini www.github.com
+
+<p align="center">
+  <img src="images/ResultatSSH.png" alt="resultat4" width="40%">
+</p>
+
+### Escaneig (Enum4Linux)
+Per acabar amb les diferents auditories que hem implementat, hem introduit l'eina d'escaneig Enum4Linux. Aquesta està dissenyada per a l'enumeració d'informació en sistemes que executen el protocol SMB. A la imatge de sota es pot veure la pàgina principal d'aquesta secció.
+
+<p align="center">
+  <img src="images/Enum4Linux.png" alt="enum4linux" width="40%">
+</p>
+
+Amb Enum4Linux hem implementat nomès una funció ja que és la més útil i interessant. Aquesta realitza un escaneig sobre un equip on nomès s'ha d'indicar la seva adreça IP. A la imatge de sota es pot veure un exemple molt senzill.
+
+<p align="center">
+  <img src="images/ResultatEnum4Linux.png" alt="resultatenum4linux" width="40%">
+</p>
 
 ### Suport tècnic
 No dubteu a explorar les diferents eines i funcions per millorar la vostra auditoria. Si teniu algun dubte, consulteu la nostra secció de preguntes freqüents o poseu-vos en contacte amb el nostre suport tècnic. Gràcies per confiar en la nostra plataforma.
 
 
-## Código de conducta 
+## Codi de conducta
 ---
-El código de conducta establece las normas sociales, reglas y responsabilidades que los individuos y organizaciones deben seguir al interactuar de alguna manera con la herramienta digital o su comunidad. Es una buena práctica para crear un ambiente de respeto e inclusión en las contribuciones al proyecto. 
+Podeu trobar el codi de conducta al següent link de GitHub: https://github.com/IsaacAndreu/MIM-Audit?tab=coc-ov-file
 
-La plataforma Github premia y ayuda a los repositorios dispongan de este archivo. Al crear CODE_OF_CONDUCT.md puedes empezar desde una plantilla sugerida por ellos. Puedes leer más sobre cómo crear un archivo de Código de Conducta (aquí)[https://help.github.com/articles/adding-a-code-of-conduct-to-your-project/]
-
-## Autor/es
+## Autor/s
 ---
-Nombra a el/los autor/es original/es. Consulta con ellos antes de publicar un email o un nombre personal. Una manera muy común es dirigirlos a sus cuentas de redes sociales.
+Marc Queral - (https://github.com/MarcQueral)
 
-## Información adicional
----
-Esta es la sección que permite agregar más información de contexto al proyecto como alguna web de relevancia, proyectos similares o que hayan usado la misma tecnología.
+Isaac Andreu - (https://github.com/IsaacAndreu)
+
+Max Segura - (https://github.com/MaxSegura)
+
+Link del projecte: [https://github.com/IsaacAndreu/MIM-Audit]
 
 ## Licencia 
 ---
 
-La licencia especifica los permisos y las condiciones de uso que el desarrollador otorga a otros desarrolladores que usen y/o modifiquen la herramienta digital.
+MIT License
 
-Incluye en esta sección una nota con el tipo de licencia otorgado a esta herramienta digital. El texto de la licencia debe estar incluído en un archivo *LICENSE.md* o *LICENSE.txt* en la raíz del repositorio.
+Drets d'autor (c) 2024 MIM Audit
 
-Si desconoces qué tipos de licencias existen y cuál es la mejor para cada caso, te recomendamos visitar la página https://choosealicense.com/.
+Es concedeix permís, de forma gratuïta, a qualsevol persona que n'obtingui una còpia
+d'aquest programari i dels fitxers de documentació associats (el "Software"), per tractar
+al Programari sense restriccions, inclosos, entre altres, els drets
+d'usar, copiar, modificar, fusionar, publicar, distribuir, subllicenciar i/o vendre
+còpies del Programari, i permetre a les persones a les quals se'ls proporcioni el Programari
+fer-ho, subjecte a les següents condicions:
 
-Si la herramienta que estás publicando con la iniciativa Código para el Desarrollo ha sido financiada por el BID, te invitamos a revisar la [licencia oficial del banco para publicar software](https://github.com/EL-BID/Plantilla-de-repositorio/blob/master/LICENSE.md)
+L'avís de copyright anterior i aquest avís de permís s'inclouran a tots
+còpies o parts substancials del Programari.
 
-## Limitación de responsabilidades
-Disclaimer: Esta sección es solo para herramientas financiadas por el BID.
-
-El BID no será responsable, bajo circunstancia alguna, de daño ni indemnización, moral o patrimonial; directo o indirecto; accesorio o especial; o por vía de consecuencia, previsto o imprevisto, que pudiese surgir:
-
-i. Bajo cualquier teoría de responsabilidad, ya sea por contrato, infracción de derechos de propiedad intelectual, negligencia o bajo cualquier otra teoría; y/o
-
-ii. A raíz del uso de la Herramienta Digital, incluyendo, pero sin limitación de potenciales defectos en la Herramienta Digital, o la pérdida o inexactitud de los datos de cualquier tipo. Lo anterior incluye los gastos o daños asociados a fallas de comunicación y/o fallas de funcionamiento de computadoras, vinculados con la utilización de la Herramienta Digital.
+EL PROGRAMARI ES PROPORCIONA "TAL QUAL", SENSE GARANTIA DE CAP TIPUS, EXPRESSA O
+IMPLÍCITA, INCLÒS PERÒ NO LIMITAT A LES GARANTIES DE COMERCIABILITAT,
+IDONEÏTAT PER A UN PROPÒSIT PARTICULAR I NO INFRACCIÓ. EN CAP CAS ELS
+AUTORS O TITULARS DELS DRETS D'AUTOR SERAN RESPONSABLES DE QUALSEVOL RECLAM,
+DANY O UNA ALTRA RESPONSABILITAT, JA SIGUI EN UNA ACCIÓ DE CONTRACTE, AGRAVI O D'ALTRA MANERA,
+PROVINENT DE, FORA D'O EN RELACIÓ AMB EL PROGRAMARI O L'ÚS O ALTRES
+OPERACIONS AL PROGRAMARI.
