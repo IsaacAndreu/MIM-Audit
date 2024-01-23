@@ -110,13 +110,18 @@ def harvester_menu():
             except FileNotFoundError:
                 all_results.clear()
 
-            if domain:
-                harvester_results = run_the_harvester(domain)
+        if domain:
+            harvester_results = run_the_harvester(domain)
 
-                if 'results' in harvester_results[0]:
-                    all_results.extend(harvester_results)
+            if 'results' in harvester_results:
+                if isinstance(harvester_results['results'], list):
+                    # Afegir els resultats a la llista global 'all_results'
+                    all_results.extend(harvester_results['results'])
+                else:
+                    # Si no és una llista, afegir com a element únic
+                    all_results.append(harvester_results['results'])
 
-                send_results_to_file()
+            send_results_to_file()
 
     return render_template('harvester.html', results=all_results)
 

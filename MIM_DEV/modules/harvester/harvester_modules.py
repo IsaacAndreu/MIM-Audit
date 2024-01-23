@@ -15,7 +15,7 @@ def load_api_keys(api_keys_file):
         print(f"El fitxer {api_keys_file} no s'ha trobat a la ruta especificada.")
         return {}
 
-def run_the_harvester(target, api_keys_file="/home/alumne/Escriptori/Code/Curs/projecte-23-24/api-keys.yaml"):
+def run_the_harvester(target, api_keys_file="/home/alumne/Escriptori/Code/Curs/MIM-Audit/api-keys.yaml"):
     # Carregar les claus de l'API
     api_keys = load_api_keys(api_keys_file)
 
