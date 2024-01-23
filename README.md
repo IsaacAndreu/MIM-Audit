@@ -80,26 +80,26 @@ Comencem amb Shodan API.
 Aquesta és a la pàgina que es fa la redirecció quan es prem el botó de Shodan API al menu principal de la pàgina web. 
 
 <p align="center">
-  <img src="images/ShodanAPI.png" alt="shodanapi" width="40%">
+  <img src="images/ShodanAPI.png" alt="shodanapi" width="50%">
 </p>
 
 Dins d'aquesta pots fer diferentes funcions ja que quan obris el desplegable pots escollir quin escaneig realitzar amb Shodan. Els anàlisis sobre una IP o un domini amb Shodan poden ser 4: informació de l'API de Shodan, noms de domini i ports oberts, servei relacionat a cada port i escaneig de IP i ports sobre un servei.
 
 <p align="center">
-  <img src="images/DesplegableShodanAPI.png" alt="desplegable1" width="40%">
+  <img src="images/DesplegableShodanAPI.png" alt="desplegable1" width="50%">
 </p>
 
 Un exemple seria el que mostrem a la imatge de sota. Com es pot comprovar introduïm el domini www.facebook.com i com a resultat ens mostra informació rellevant sobre aquest.
 
 <p align="center">
-  <img src="images/ResultatShodan.png" alt="resultat1" width="40%">
+  <img src="images/ResultatShodan.png" alt="resultat1" width="60%">
 </p>
 
 ### The Harvester
 Amb The Harvester, d'entrada ens demana introduïr una IP o URL objectiu per realitzar l'auditoria. Com a resultat ens mostra un escaneig bastant extens amb molta informació interessant sobre el domini introduit.
 
 <p align="center">
-  <img src="images/TheHarvester.png" alt="TheHarvester" width="40%">
+  <img src="images/TheHarvester.png" alt="TheHarvester" width="50%">
 </p>
 
 Com aquesta eina es tant completa, tarda uns 3min en realitzar l'escaneig però l'espera val la pena!!
@@ -120,13 +120,13 @@ Amb Nmap es poden escollir fins a 4 funcions diferents. Aquestes són bastant ú
 Per fer la selecció de l'escaneig que es vol dur a terme, hi ha un desplegable el qual explica detalladament cada funció. Aquesta eina ens permet fer una cerca de hosts dins d'una xarxa, escaneig de ports oberts, serveis i versions de ports i també es pot extreure un llistat de vulnerabilitats.
 
 <p align="center">
-  <img src="images/DesplegableNmap.png" alt="desplegablenmap" width="40%">
+  <img src="images/DesplegableNmap.png" alt="desplegablenmap" width="50%">
 </p>
 
 Com us mostrem a la imatge de sota, es pot apreciar un escaneig sobre un equip de serveis i versions dins d'un rang de ports.
 
 <p align="center">
-  <img src="images/ResultatNmap.png" alt="resultat3" width="40%">
+  <img src="images/ResultatNmap.png" alt="resultat3" width="60%">
 </p>
 
 ### Auditoria SSH
@@ -145,7 +145,7 @@ Dins de la seva pàgina inicial, es pot veure un desplegable el qual permet fer 
 Per a que veigueu el seu ús, aqui us mostrem una auditoria sobre el domini www.github.com
 
 <p align="center">
-  <img src="images/ResultatSSH.png" alt="resultat4" width="40%">
+  <img src="images/ResultatSSH.png" alt="resultat4" width="60%">
 </p>
 
 ### Escaneig (Enum4Linux)
@@ -158,7 +158,7 @@ Per acabar amb les diferents auditories que hem implementat, hem introduit l'ein
 Amb Enum4Linux hem implementat nomès una funció ja que és la més útil i interessant. Aquesta realitza un escaneig sobre un equip on nomès s'ha d'indicar la seva adreça IP. A la imatge de sota es pot veure un exemple molt senzill.
 
 <p align="center">
-  <img src="images/ResultatEnum4Linux.png" alt="resultatenum4linux" width="40%">
+  <img src="images/ResultatEnum4Linux.png" alt="resultatenum4linux" width="60%">
 </p>
 
 ### Suport tècnic
